@@ -3,7 +3,7 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title> - POLIMORFISME & INHERITANCE | USMAN YAKIN</title> 
+    <title>POLIMORFISME DAN ABSTRAKSI - USMAN YAKIN</title> 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"> 
     <style> 
         body{ 
@@ -36,13 +36,12 @@
         } 
         .card{ 
             background:rgba(0,20,10,0.85); 
-            padding:30px; 
-            margin-bottom:40px; 
+            padding:25px; 
+            margin-bottom:30px; 
             border:1px solid #00ff9f; 
             border-radius:10px; 
             box-shadow:0 0 15px #00ff9f inset,0 0 20px #00ff9f; 
             transition:0.3s; 
-            position: relative;
         } 
         .card:hover{ 
             box-shadow:0 0 25px #00ff9f,0 0 60px #00ff9f; 
@@ -50,24 +49,32 @@
         } 
         h2{ 
             color:#00ff9f; 
-            margin-bottom:20px; 
+            margin-bottom:15px; 
             text-shadow:0 0 10px #00ff9f; 
+            font-size: 1.6em;
         } 
-        p,li{ 
-            line-height:1.7; 
+        h3 {
+            color: #00ff9f;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        p{ 
+            line-height:1.6; 
             color:#b8ffe7; 
+            margin-bottom:10px;
         } 
         pre{ 
             background:#000; 
             color:#00ff9f; 
-            padding:20px; 
+            padding:15px; 
             border-radius:10px; 
             border:1px solid #00ff9f; 
             box-shadow:0 0 10px #00ff9f inset; 
             overflow-x:auto; 
-            font-size: 14px;
+            font-size: 13px;
             white-space: pre-wrap;
             word-wrap: break-word;
+            margin:15px 0;
         } 
         .comment-box{ 
             background:#000; 
@@ -75,24 +82,22 @@
             border-radius:10px; 
             border:1px solid #00ff9f; 
             box-shadow:0 0 20px #00ff9f; 
-            margin-bottom:40px; 
+            margin-bottom:30px; 
         } 
         .btn-group{ 
             display:flex; 
             flex-wrap:wrap; 
             gap:10px; 
-            margin:20px 0; 
+            margin:15px 0; 
         } 
         button{ 
             background:#00ff9f; 
             color:black; 
             border:none; 
-            padding:10px 20px; 
+            padding:8px 18px; 
             cursor:pointer; 
             box-shadow:0 0 10px #00ff9f; 
             font-family:'Orbitron'; 
-            margin-right:10px; 
-            margin-top:10px; 
             transition: 0.3s;
             font-weight: bold;
         } 
@@ -101,7 +106,7 @@
             transform: scale(1.05);
         } 
         
-        /* MODAL POPUP STYLES */
+        /* MODAL POPUP */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -143,37 +148,32 @@
             align-items: center;
             color: #00ff9f;
             font-size: 18px;
-            text-shadow: 0 0 10px #00ff9f;
         }
         
         .modal-title {
             background: #000;
-            padding: 10px 20px;
+            padding: 8px 20px;
             border: 2px solid #00ff9f;
             border-radius: 30px;
-            box-shadow: 0 0 20px #00ff9f;
         }
         
         .modal-close {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: #00ff9f;
-            border: 3px solid #000;
             border-radius: 50%;
             color: black;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 0 30px #00ff9f;
             transition: 0.3s;
         }
         
         .modal-close:hover {
             transform: scale(1.2) rotate(90deg);
-            box-shadow: 0 0 50px #00ff9f;
         }
         
         .modal-iframe {
@@ -189,732 +189,365 @@
             padding:20px; 
             background:#010a05; 
             border-top:3px solid #00ff9f; 
-            box-shadow:0 0 20px #00ff9f; 
             color:#7affc7; 
         } 
 
-        .status-badge {
+        .badge {
             display: inline-block;
             background: #00ff9f;
             color: black;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 11px;
             margin-left: 10px;
-            vertical-align: middle;
         }
 
-        /* Daftar isi */
         .daftar-isi {
             background: rgba(0,20,10,0.7);
             border: 1px solid #00ff9f;
-            padding: 20px;
+            padding: 15px;
             border-radius: 10px;
             margin-bottom: 30px;
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
         }
 
         .daftar-isi a {
             color: #00ff9f;
             text-decoration: none;
-            padding: 8px 18px;
+            padding: 6px 15px;
             border: 1px solid #00ff9f;
-            border-radius: 30px;
-            font-size: 0.9em;
+            border-radius: 25px;
+            font-size: 12px;
             transition: all 0.3s;
         }
 
         .daftar-isi a:hover {
             background: #00ff9f;
             color: #000;
-            box-shadow: 0 0 20px #00ff9f;
         }
     </style> 
 </head> 
 <body> 
     <header> 
-        <h1>🔴  - POLIMORFISME & INHERITANCE</h1> 
+        <h1>🔷 POLIMORFISME & ABSTRAKSI 🔷</h1> 
         <p>USMAN YAKIN TRIO SINADA | NIM: 251410006 | KELAS: SI2A</p> 
     </header> 
     
- 
+    <!-- MODAL POPUP -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">Demo Dart</span>
+                <div class="modal-close" onclick="closeModal()">×</div>
+            </div>
+            <iframe class="modal-iframe" id="modalIframe" src="about:blank" allow="fullscreen"></iframe>
+        </div>
+    </div>
+    
+    <div class="container"> 
+        <!-- PENGERTIAN -->
+        <div class="comment-box"> 
+            <h2>💡 PENGERTIAN POLIMORFISME & ABSTRAKSI</h2> 
+            <p><b>Polimorfisme</b> (banyak bentuk) - objek dapat diperlakukan sebagai bentuk yang berbeda.</p>
+            <p><b>Abstraksi</b> - menyembunyikan detail implementasi, hanya menampilkan fungsi penting.</p>
+        </div> 
+
         <!-- DAFTAR ISI -->
         <div class="daftar-isi">
-            <a href="#materi1">🐷 1. Polimorfisme Hewan</a>
-            <a href="#materi2">📐 2. Polimorfisme Bentuk</a>
-            <a href="#materi3">🚛 3. Inheritance Truk</a>
-            <a href="#materi4">🐰 4. Hewan (Kelinci, Anjing, Sapi)</a>
-            <a href="#materi5">🚗 5. Abstract Class Kendaraan</a>
-            <a href="#materi6">🎵 6. Abstract Class AlatMusik</a>
-            <a href="#materi7">🦅 7. Interface Flyable</a>
-            <a href="#materi8">🔄 8. Looping Sederhana</a>
-            <a href="#materi9">💼 9. Interface Pekerja</a>
-            <a href="#materi10">📱 10. Multiple Inheritance Tablet</a>
+            <a href="#m1">1. Pewarisan</a>
+            <a href="#m2">2. Polimorfisme</a>
+            <a href="#m3">3. Polimorfisme Inheritance</a>
+            <a href="#m4">4. Manfaat</a>
+            <a href="#m5">5. Is dan As</a>
+            <a href="#m6">6. Praktik List</a>
+            <a href="#m7">7. Abstraksi</a>
+            <a href="#m8">8. Abstract Class</a>
+            <a href="#m9">9. Abstract Method</a>
+            <a href="#m10">10. Interface</a>
+            <a href="#m11">11. Extends vs Implements</a>
+            <a href="#m12">12. Static Member</a>
+            <a href="#m13">13. Sistem Pembayaran</a>
+            <a href="#m14">14. Bentuk Geometri</a>
         </div>
 
-        <!-- MATERI 1: HEWAN (POLIMORFISME) -->
-        <div id="materi1" class="card"> 
-            <h2>🐷 1. POLIMORFISME - Hewan <span class="status-badge">DART</span></h2> 
-            <p><b>Polimorfisme</b> <div id="materi1" class="card"> 
-            <h2>🐷 1. POLIMORFISME - Kelas Hewan</h2>
-            <div class="penjelasan">
-                <p><b>📖 PENJELASAN MATERI:</b></p>
-                <p><b>Polimorfisme</b> berasal dari bahasa Yunani yang berarti "banyak bentuk". Dalam OOP, polimorfisme memungkinkan sebuah objek untuk diperlakukan sebagai objek dari kelas induknya, namun tetap menjalankan method yang sesuai dengan kelas aslinya.</p>
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM  : 251410006
-// Kelas: SI2A
+        <!-- 1. PENGERTIAN PEWARISAN -->
+        <div id="m1" class="card"> 
+            <h2>1. PENGERTIAN PEWARISAN <span class="badge">extends</span></h2>
+            <p><b>Penjelasan:</b> Inheritance memungkinkan class child mewarisi properti dan method dari class parent.</p>
+            <pre><code>// Nama  : USMAN YAKIN TRIO SINADA
+// NIM   : 251410006
+// Kelas : SI2A
 
 class Hewan {
   void bersuara() => print('...');
 }
 
-class Babi extends Hewan {
+class Anjing extends Hewan {
   @override
-  void bersuara() => print('grok-grok');
+  void bersuara() => print('Guk Guk');
 }
 
 void main() {
-  Hewan hewan = Babi();
-  hewan.bersuara(); // Output: grok-grok
+  Hewan hewan = Anjing();
+  hewan.bersuara(); // Output: Guk Guk
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=ce1b77c7e9fcebff8faf9d3c2b929285&theme=dark&run=true', 'Demo Polimorfisme - Hewan')">🐷 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=ce1b77c7e9fcebff8faf9d3c2b929285&theme=dark&run=true', 'Demo Pewarisan')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 2: BENTUK (SEGITIGA & PERSEGI) -->
-        <div id="materi2" class="card"> 
-            <h2>📐 2. POLIMORFISME - Bentuk <span class="status-badge">DART</span></h2> 
-            <p>Polimorfisme memungkinkan method <code>gambar()</code> memiliki perilaku berbeda tergantung objek yang sebenarnya.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM  : 251410006
-// Kelas: SI2A
+        <!-- 2. PENGANTAR POLIMORFISME -->
+        <div id="m2" class="card"> 
+            <h2>2. PENGANTAR POLIMORFISME <span class="badge">Runtime</span></h2>
+            <p><b>Penjelasan:</b> Poli = banyak, morph = bentuk. Objek subclass dapat diperlakukan sebagai objek superclass.</p>
+            <pre><code>// Contoh: Kucing, Anjing, Burung semua dianggap sebagai Hewan
+// Dart hanya mendukung Runtime Polymorphism (method overriding)</code></pre>
+        </div>
 
-class Bentuk {
+        <!-- 3. POLIMORFISME DENGAN INHERITANCE -->
+        <div id="m3" class="card"> 
+            <h2>3. POLIMORFISME DENGAN INHERITANCE</h2>
+            <p><b>Penjelasan:</b> Referensi tipe parent dapat menampung objek child, memungkinkan satu tipe data untuk berbagai objek.</p>
+            <pre><code>class Bentuk {
   void gambar() => print('Menggambar bentuk');
 }
 
-class Segitiga extends Bentuk {
-  @override
-  void gambar() => print('Menggambar Segitiga');
-}
-
 class Persegi extends Bentuk {
-  @override
-  void gambar() => print('Menggambar Persegi');
+  @override void gambar() => print('Menggambar Persegi');
+}
+
+class PersegiPanjang extends Bentuk {
+  @override void gambar() => print('Menggambar Persegi Panjang');
 }
 
 void main() {
-  Bentuk b1 = Segitiga();
-  Bentuk b2 = Persegi();
-
-  b1.gambar(); // Menggambar Segitiga
-  b2.gambar(); // Menggambar Persegi
+  Bentuk b1 = Persegi();
+  Bentuk b2 = PersegiPanjang();
+  b1.gambar(); // Menggambar Persegi
+  b2.gambar(); // Menggambar Persegi Panjang
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c649bbcaef61985f7672182f2fda2449&theme=dark&run=true', 'Demo Polimorfisme - Bentuk')">📐 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=c649bbcaef61985f7672182f2fda2449&theme=dark&run=true', 'Demo Polimorfisme Inheritance')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 3: TRUK (INHERITANCE) -->
-        <div id="materi3" class="card"> 
-            <h2>🚛 3. INHERITANCE - Truk <span class="status-badge">DART</span></h2> 
-            <p><b>Inheritance (pewarisan)</b> memungkinkan kelas <code>Truk</code> mewarisi sifat dari kelas <code>Transportasi</code>.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// Nim  : 251410006
-// Kelas: SI2A
+        <!-- 4. MANFAAT POLIMORFISME -->
+        <div id="m4" class="card"> 
+            <h2>4. MANFAAT POLIMORFISME</h2>
+            <p><b>Penjelasan:</b> Fleksibel, mudah dikembangkan, kode dapat digunakan ulang, dan perawatan lebih mudah.</p>
+            <ul style="color:#b8ffe7; margin-left:20px;">
+                <li>✅ Fleksibilitas untuk berbagai jenis objek</li>
+                <li>✅ Penambahan tipe baru tanpa mengubah banyak kode</li>
+                <li>✅ Penggunaan ulang method dari class induk</li>
+                <li>✅ Kemudahan perawatan program</li>
+            </ul>
+        </div>
 
-class Transportasi {}
-
-class Truk extends Transportasi {
-  void klakson() {
-    print('Tuut tuut!');
-  }
+        <!-- 5. IS DAN AS OPERATOR -->
+        <div id="m5" class="card"> 
+            <h2>5. IS DAN AS OPERATOR</h2>
+            <p><b>Penjelasan:</b> <code>is</code> untuk memeriksa tipe objek, <code>as</code> untuk mengubah tipe objek.</p>
+            <pre><code>class Transportasi {}
+class Bus extends Transportasi {
+  void klakson() => print('Bip bip!');
 }
 
 void main() {
-  Truk k = Truk();
-  k.klakson(); // Output: Tuut tuut!
+  Bus k = Bus();
+  k.klakson(); // Output: Bip bip!
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=f5467400a854dd0e309cd0157abd4968&theme=dark&run=true', 'Demo Inheritance - Truk')">🚛 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=f5467400a854dd0e309cd0157abd4968&theme=dark&run=true', 'Demo Is As')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 4: HEWAN (KELINCI, ANJING, SAPI) -->
-        <div id="materi4" class="card"> 
-            <h2>🐰 4. POLIMORFISME - Kelinci, Anjing, Sapi <span class="status-badge">DART</span></h2> 
-            <p>Polimorfisme dengan collection: semua objek hewan dapat diperlakukan secara seragam dalam satu list.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM  : 251410006
-// Kelas: SI2A
-
-class Hewan {
-  void bersuara() => print('Hewan bersuara');
-}
-
-class Kelinci extends Hewan {
-  @override void bersuara() => print('Cik cik');
-}
-
-class Anjing extends Hewan {
-  @override void bersuara() => print('Guk guk');
-}
-
-class Sapi extends Hewan {
-  @override void bersuara() => print('Moo');
-}
+        <!-- 6. PRAKTIK POLIMORFISME DENGAN LIST -->
+        <div id="m6" class="card"> 
+            <h2>6. PRAKTIK POLIMORFISME DENGAN LIST</h2>
+            <p><b>Penjelasan:</b> List dengan tipe parent dapat menyimpan berbagai objek subclass. Perulangan akan menjalankan method sesuai implementasi masing-masing.</p>
+            <pre><code>class Hewan { void bersuara() => print('Hewan bersuara'); }
+class Kucing extends Hewan { @override void bersuara() => print('Meong'); }
+class Anjing extends Hewan { @override void bersuara() => print('Guk guk'); }
+class Burung extends Hewan { @override void bersuara() => print('Cuit cuit'); }
 
 void main() {
-  List daftarHewan = [Kelinci(), Anjing(), Sapi()];
-
-  for (var h in daftarHewan) {
-    h.bersuara();
-  }
+  List daftarHewan = [Kucing(), Anjing(), Burung()];
+  for (var h in daftarHewan) { h.bersuara(); }
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=1df65dff904e69b776e3915f1f91d5cd&theme=dark&run=true', 'Demo Hewan - Kelinci, Anjing, Sapi')">🐰 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=1df65dff904e69b776e3915f1f91d5cd&theme=dark&run=true', 'Demo List Polimorfisme')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 5: ABSTRACT CLASS KENDARAAN -->
-        <div id="materi5" class="card"> 
-            <h2>🚗 5. ABSTRACT CLASS - Kendaraan <span class="status-badge">DART</span></h2> 
-            <p><b>Abstract class</b> adalah kelas yang tidak bisa diinstansiasi langsung. Method <code>start()</code> harus diimplementasikan oleh kelas turunannya.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM  : 251410006
-// Kelas: SI2A
+        <!-- 7. PENGANTAR ABSTRAKSI -->
+        <div id="m7" class="card"> 
+            <h2>7. PENGANTAR ABSTRAKSI</h2>
+            <p><b>Penjelasan:</b> Menyembunyikan detail implementasi, hanya menampilkan bagian penting dari objek kepada pengguna.</p>
+            <ul style="color:#b8ffe7; margin-left:20px;">
+                <li>🔹 Menyederhanakan sistem</li>
+                <li>🔹 Mengurangi kompleksitas</li>
+                <li>🔹 Meningkatkan keamanan</li>
+                <li>🔹 Mempermudah pengembangan</li>
+            </ul>
+        </div>
 
-abstract class Kendaraan {
+        <!-- 8. ABSTRACT CLASS -->
+        <div id="m8" class="card"> 
+            <h2>8. ABSTRACT CLASS</h2>
+            <p><b>Penjelasan:</b> Class blueprint yang tidak bisa diinstansiasi langsung, hanya bisa digunakan melalui class turunan.</p>
+            <pre><code>abstract class Kendaraan {
   String? merk;
   void start();
   void stop() => print('Kendaraan berhenti');
 }
 
 class Mobil extends Kendaraan {
-  @override
-  void start() => print('Mobil $merk menyala');
+  @override void start() => print('Mobil $merk menyala');
 }
 
 void main() {
   Mobil m = Mobil();
-  m.merk = "SUPRA";
-  m.start(); // Mobil SUPRA menyala
+  m.merk = "BMW";
+  m.start(); // Mobil BMW menyala
   m.stop();  // Kendaraan berhenti
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=2766c3dde4c91906bc8bac6a6a92b951&theme=dark&run=true', 'Demo Abstract Class - Kendaraan')">🚗 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=2766c3dde4c91906bc8bac6a6a92b951&theme=dark&run=true', 'Demo Abstract Class')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 6: ABSTRACT CLASS ALAT MUSIK -->
-        <div id="materi6" class="card"> 
-            <h2>🎵 6. ABSTRACT CLASS - AlatMusik <span class="status-badge">DART</span></h2> 
-            <p>Method <code>info()</code> adalah method biasa, sedangkan <code>maink()</code> adalah method abstrak yang harus diimplementasikan.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// Nim  : 251410006
-// Kelas: SI2A
-
-abstract class AlatMusik {
-  void maink();
+        <!-- 9. ABSTRACT METHOD -->
+        <div id="m9" class="card"> 
+            <h2>9. ABSTRACT METHOD</h2>
+            <p><b>Penjelasan:</b> Method tanpa implementasi yang wajib di-override oleh class turunan.</p>
+            <pre><code>abstract class AlatMusik {
+  void mainkan(); // abstract method
+  void info() => print('Ini adalah alat musik');
 }
 
-void info() => print('Ini adalah alat musik');
-
-class Seruling extends AlatMusik {
-  @override
-  void maink() => print('Tu tu tu...');
+class Gitar extends AlatMusik {
+  @override void mainkan() => print('Jreng jreng...');
 }
 
 void main() {
-  Seruling g = Seruling();
+  Gitar g = Gitar();
   g.info();   // Ini adalah alat musik
-  g.maink();  // Tu tu tu...
+  g.mainkan(); // Jreng jreng...
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=03fee5a1ddba5ebeaf4536a2592679c1&theme=dark&run=true', 'Demo Abstract Class - AlatMusik')">🎵 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=03fee5a1ddba5ebeaf4536a2592679c1&theme=dark&run=true', 'Demo Abstract Method')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 7: INTERFACE FLYABLE -->
-        <div id="materi7" class="card"> 
-            <h2>🦅 7. INTERFACE - Flyable <span class="status-badge">DART</span></h2> 
-            <p><b>Interface</b> menggunakan keyword <code>interface class</code> atau <code>implements</code>. Kelas yang mengimplementasikan harus mengoverride semua method.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// Nim  : 251410006
-// Kelas: SI2A
-
-interface class Flyable {
+        <!-- 10. INTERFACE DI DART -->
+        <div id="m10" class="card"> 
+            <h2>10. INTERFACE DI DART</h2>
+            <p><b>Penjelasan:</b> Menggunakan <code>implements</code>, class wajib mengimplementasikan semua method dari interface.</p>
+            <pre><code>interface class Flyable {
   void terbang() => print('Terbang...');
 }
 
-class Burung implements Flyable {
-  @override
-  void terbang() => print('Burung terbang indah');
+class KupuKupu implements Flyable {
+  @override void terbang() => print('Kupu-kupu terbang indah');
 }
 
-class Jet implements Flyable {
-  @override
-  void terbang() => print('Jet terbang cepat');
+class Drone implements Flyable {
+  @override void terbang() => print('Drone terbang cepat');
 }
 
 void main() {
-  Burung k = Burung();
-  Jet d = Jet();
-
-  k.terbang(); // Burung terbang indah
-  d.terbang(); // Jet terbang cepat
+  KupuKupu k = KupuKupu();
+  Drone d = Drone();
+  k.terbang(); // Kupu-kupu terbang indah
+  d.terbang(); // Drone terbang cepat
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=235ba8a8629842422e6e5d89fe3f4ea0&theme=dark&run=true', 'Demo Interface - Flyable')">🦅 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=235ba8a8629842422e6e5d89fe3f4ea0&theme=dark&run=true', 'Demo Interface')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 8: LOOPING SEDERHANA -->
-        <div id="materi8" class="card"> 
-            <h2>🔄 8. LOOPING SEDERHANA <span class="status-badge">DART</span></h2> 
-            <p>Contoh sederhana perulangan <code>for</code> untuk mencetak "hello" sebanyak 10 kali.</p> 
-            <pre><code// Nama : USMAN YAKIN TRIO SINADA
-// Nim : 251410006
-// Kelas : SI2A
+        <!-- 11. PERBEDAAN EXTENDS VS IMPLEMENTS -->
+        <div id="m11" class="card"> 
+            <h2>11. PERBEDAAN EXTENDS VS IMPLEMENTS</h2>
+            <p><b>Penjelasan:</b> <code>extends</code> mewarisi implementasi, <code>implements</code> hanya mewarisi kontrak (wajib override semua).</p>
+            <pre><code>// extends: bisa menggunakan atau override method dari parent
+// implements: wajib override SEMUA method, tidak mewarisi implementasi</code></pre>
+        </div>
 
-class MathUtils {
+        <!-- 12. STATIC MEMBERS DAN METHOD -->
+        <div id="m12" class="card"> 
+            <h2>12. STATIC MEMBERS DAN METHOD</h2>
+            <p><b>Penjelasan:</b> Static member bisa diakses langsung tanpa membuat objek, cukup dengan nama class.</p>
+            <pre><code>class MathUtils {
   static double pi = 3.14;
-
-  static int add(int x, int y) {
-    return x + y;
-  }
+  static int add(int x, int y) => x + y;
 }
 
 void main() {
-  print('Nilai pi : ${MathUtils.pi}');
-  print('Result : ${MathUtils.add(10, 20)}');
-}
+  print('Nilai pi : ${MathUtils.pi}');      // 3.14
+  print('Result : ${MathUtils.add(10, 20)}'); // 30
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=405cd473df83d9cb184659e691b96d2f&theme=dark&run=true', 'Demo Looping Sederhana')">🔄 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=405cd473df83d9cb184659e691b96d2f&theme=dark&run=true', 'Demo Static')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 9: INTERFACE PEKERJA -->
-        <div id="materi9" class="card"> 
-            <h2>💼 9. INTERFACE - Pekerja (Programmer, Dokter, Guru) <span class="status-badge">DART</span></h2> 
-            <p>Implementasi interface pada tiga kelas berbeda: Programmer, Dokter, dan Guru.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// Nim : 251410006
-// Kelas : SI2A
-
-abstract class MetodePembayaran {
-  void bayar(double jumlah);
-}
+        <!-- 13. SISTEM PEMBAYARAN -->
+        <div id="m13" class="card"> 
+            <h2>13. PRAKTIK - SISTEM PEMBAYARAN</h2>
+            <p><b>Penjelasan:</b> Implementasi interface untuk berbagai metode pembayaran (Kartu Kredit, E-Wallet, Tunai).</p>
+            <pre><code>abstract class MetodePembayaran { void bayar(double jumlah); }
 
 class KartuKredit implements MetodePembayaran {
-  @override
-  void bayar(double jumlah) {
-    print('Bayar $jumlah dengan Kartu Kredit');
-  }
+  @override void bayar(double jumlah) => print('Bayar $jumlah dengan Kartu Kredit');
 }
 
 class EWallet implements MetodePembayaran {
-  @override
-  void bayar(double jumlah) {
-    print('Bayar $jumlah dengan E-Wallet');
-  }
+  @override void bayar(double jumlah) => print('Bayar $jumlah dengan E-Wallet');
 }
 
 class Tunai implements MetodePembayaran {
-  @override
-  void bayar(double jumlah) {
-    print('Bayar $jumlah dengan Tunai');
-  }
+  @override void bayar(double jumlah) => print('Bayar $jumlah dengan Tunai');
 }
 
 void main() {
   MetodePembayaran m1 = KartuKredit();
   MetodePembayaran m2 = EWallet();
   MetodePembayaran m3 = Tunai();
-
   m1.bayar(100000);
-  m2.bayar(75000);
-  m3.bayar(50000);
-}
+  m2.bayar(50000);
+  m3.bayar(20000);
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=0573c74382c52c09908888ba247f525&theme=dark&run=true', 'Demo Interface - Pekerja')">💼 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo Sistem Pembayaran')">▶ JALANKAN</button>
+        </div>
 
-        <!-- MATERI 10: MULTIPLE INHERITANCE TABLET -->
-        <div id="materi10" class="card"> 
-            <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// Nim : 251410006
-// Kelas : SI2A
-
-abstract class Bentuk {
+        <!-- 14. BENTUK GEOMETRI -->
+        <div id="m14" class="card"> 
+            <h2>14. STUDI KASUS - BENTUK GEOMETRI</h2>
+            <p><b>Penjelasan:</b> Sistem menghitung luas dan keliling berbagai bangun (Persegi, Lingkaran) dengan abstract class.</p>
+            <pre><code>abstract class Bentuk {
   double hitungLuas();
   double hitungKeliling();
-
-  void info() {
-    print('Luas: ${hitungLuas()} , Keliling: ${hitungKeliling()}');
-  }
 }
 
-class Persegi  implements Bentuk {
+class Persegi implements Bentuk {
   double sisi;
   Persegi(this.sisi);
-
-  @override
-  double hitungLuas() => sisi * sisi;
-
-  @override
-  double hitungKeliling() => 4 * sisi;
-
-  @override
-  void info() {
-    print(
-      'Persegi dengan sisi $sisi memiliki luas ${hitungLuas()} dan keliling ${hitungKeliling()}'
-    );
-  }
+  @override double hitungLuas() => sisi * sisi;
+  @override double hitungKeliling() => 4 * sisi;
 }
 
 class Lingkaran implements Bentuk {
   double radius;
   Lingkaran(this.radius);
-
-  @override
-  double hitungLuas() => 3.14 * radius * radius;
-
-  @override
-  double hitungKeliling() => 2 * 3.14 * radius;
-
-  @override
-  void info() {
-    print(
-      'Lingkaran dengan radius $radius memiliki luas ${hitungLuas()} dan keliling ${hitungKeliling()}'
-    );
-  }
+  @override double hitungLuas() => 3.14 * radius * radius;
+  @override double hitungKeliling() => 2 * 3.14 * radius;
 }
 
 void main() {
   Bentuk b1 = Persegi(4);
   Bentuk b2 = Lingkaran(7);
-
-  b1.info();
-  b2.info();
-}
+  print('Persegi: luas=${b1.hitungLuas()}, keliling=${b1.hitungKeliling()}');
+  print('Lingkaran: luas=${b2.hitungLuas()}, keliling=${b2.hitungKeliling()}');
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=1e32dcfbc2ddd60f081da41ae439416e&theme=dark&run=true', 'Demo Multiple Inheritance - Tablet')">📱 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
+            <button onclick="openModal('https://dartpad.dev/?id=2ef67fa3cc5dac5d94eaf54440d1577d&theme=dark&run=true', 'Demo Bentuk Geometri')">▶ JALANKAN</button>
+        </div>
 
-      <!-- MATERI 11: Class pekerja TABLET -->
-        <div id="materi11" class="card"> 
-            <h2>📱 11. Classpekerja - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>class pekerja</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM : 251410006
-// Kelas : SI2A
-
-abstract class Pekerja {
-  void bekerja(); // abstract
-}
-
-void info() {
-  print('Ini adalah pekerja');
-}
-
-class Programmer implements Pekerja {
-  @override
-  void bekerja() {
-    print('Programmer sedang coding');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Programmer');
-  }
-}
-
-class Dokter implements Pekerja {
-  @override
-  void bekerja() {
-    print('Dokter sedang memeriksa pasien');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Dokter');
-  }
-}
-
-class Guru implements Pekerja {
-  @override
-  void bekerja() {
-    print('Guru sedang mengajar');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Guru');
-  }
-}
-
-void main() {
-  List daftar = [
-    Programmer(),
-    Dokter(),
-    Guru(),
-  ];
-
-  for (var p in daftar) {
-    p.info();
-    p.bekerja();
-    print('---');
-  }
-}}</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo classpekerja - Tablet')">📱 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
-
-      <!-- MATERI 12: Classkomputer TABLET -->
-        <div id="materi10" class="card"> 
-            <h2>📱 12 classkomputer - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>classkomputer</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM : 251410006
-// Kelas : SI2A
-
-abstract class Pekerja {
-  void bekerja(); // abstract
-}
-
-void info() {
-  print('Ini adalah pekerja');
-}
-
-class Programmer implements Pekerja {
-  @override
-  void bekerja() {
-    print('Programmer sedang coding');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Programmer');
-  }
-}
-
-class Dokter implements Pekerja {
-  @override
-  void bekerja() {
-    print('Dokter sedang memeriksa pasien');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Dokter');
-  }
-}
-
-class Guru implements Pekerja {
-  @override
-  void bekerja() {
-    print('Guru sedang mengajar');
-  }
-
-  @override
-  void info() {
-    print('Pekerja: Guru');
-  }
-}
-
-void main() {
-  List daftar = [
-    Programmer(),
-    Dokter(),
-    Guru(),
-  ];
-
-  for (var p in daftar) {
-    p.info();
-    p.bekerja();
-    print('---');
-  }
-}</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=2ef67fa3cc5dac5d94eaf54440d1577ddark&run=true', 'Demo classkomputer - Tablet')">📱 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
-
-     <!-- MATERI 13:  Mathutilsclass TABLET -->
-        <div id="materi13" class="card"> 
-            <h2>📱 13. Mathutilsclass - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>mathutilsclass</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM : 251410006
-// Kelas : SI2A
-
-import 'dart:math';
-
-class MathUtils {
-  static int faktorial(int n) {
-    if (n <= 1) return 1;
-    return n * faktorial(n - 1);
-  }
-
-  static bool isPrima(int n) {
-    if (n < 2) return false;
-
-    for (int i = 2; i <= sqrt(n); i++) {
-      if (n % i == 0) return false;
-    }
-    return true;
-  }
-
-  static double roundDouble(double value, int decimal) {
-    double mod = pow(10, decimal).toDouble();
-    return (value * mod).round() / mod;
-  }
-
-  static int randomInt(int min, int max) {
-    return min + Random().nextInt(max - min + 1);
-  }
-
-  static double randomDouble(double min, double max) {
-    return min + Random().nextDouble() * (max - min);
-  }
-
-  static double rataRata(List data) {
-    return data.reduce((a, b) => a + b) / data.length;
-  }
-
-  static double median(List data) {
-    var sorted = List.from(data);
-    sorted.sort();
-    int n = sorted.length;
-
-    if (n % 2 == 1) {
-      return sorted[n ~/ 2].toDouble();
-    } else {
-      return (sorted[n ~/ 2 - 1] + sorted[n ~/ 2]) / 2;
-    }
-  }
-}</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=277c0033b3436e0d23cae8917d889f17&run=true', 'Demo Mathutilsclass - Tablet')">📱 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
-
-     <!-- MATERI 14:  Media Player TABLET -->
-        <div id="materi14" class="card"> 
-            <h2>📱 14.Media Player - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>Media Player</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
-            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM : 251410006
-// Kelas : SI2A
-
-abstract class MediaPlayer {
-  void load(String file);
-}
-
-abstract class Playable {
-  void play();
-}
-
-abstract class Pausable {
-  void pause();
-}
-
-class AudioPlayer extends MediaPlayer implements Playable, Pausable {
-  String? file;
-
-  @override
-  void load(String file) {
-    this.file = file;
-    print('Audio dimuat: $file');
-  }
-
-  @override
-  void play() {
-    print('Audio diputar');
-  }
-
-  @override
-  void pause() {
-    print('Audio dijeda');
-  }
-}
-
-class VideoPlayer extends MediaPlayer implements Playable, Pausable {
-  String? file;
-
-  @override
-  void load(String file) {
-    this.file = file;
-    print('Video dimuat: $file');
-  }
-
-  @override
-  void play() {
-    print('Video diputar');
-  }
-
-  @override
-  void pause() {
-    print('Video dijeda');
-  }
-}
-
-void main() {
-  List players = [
-    AudioPlayer(),
-    VideoPlayer(),
-  ];
-
-  for (var p in players) {
-    p.load('file.mp3 / file.mp4');
-
-    if (p is Playable) {
-      p.play();
-    }
-
-    if (p is Pausable) {
-      p.pause();
-    }
-
-    print('---');
-  }
-}</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=3e1c07a47e539adc068196207ce1f6b1&run=true', 'Demo Media Player - Tablet')">📱 JALANKAN (Langsung Output)</button>
-            </div>
-        </div> 
-
-void main() {
-  print(MathUtils.faktorial(5));
-  print(MathUtils.isPrima(7));
-  print(MathUtils.roundDouble(3.14159, 2));
-  print(MathUtils.randomInt(1, 10));
-  print(MathUtils.randomDouble(1, 5));
-  print(MathUtils.rataRata([1, 2, 3, 4]));
-  print(MathUtils.median([1, 2, 3, 4, 5]));
-}
         <!-- KESIMPULAN -->
         <div class="card"> 
-            <h2>🎯 KESIMPULAN</h2> 
-            <p>✅ <b>Inheritance (pewarisan)</b> memungkinkan kelas mewarisi sifat dari kelas lain menggunakan keyword <code>extends</code>.</p>
-            <p>✅ <b>Polymorphism (polimorfisme)</b> memungkinkan objek memiliki banyak bentuk, method yang sama bisa memiliki perilaku berbeda.</p>
-            <p>✅ <b>Abstract Class</b> adalah kelas yang tidak bisa diinstansiasi, berfungsi sebagai template untuk kelas turunan.</p>
-            <p>✅ <b>Interface</b> menggunakan keyword <code>implements</code> dan mendukung multiple inheritance.</p>
-            <p style="color: #00ff9f; margin-top: 20px;">🔴 Semua source code di website ini SESUAI dengan kode yang ada di DartPad.</p>
-        </div> 
+            <h2>📌 KESIMPULAN</h2>
+            <p>✅ <b>Polimorfisme</b> memungkinkan objek digunakan dalam berbagai bentuk - kode lebih fleksibel.</p>
+            <p>✅ <b>Abstraksi</b> menyembunyikan detail implementasi - kode lebih sederhana dan aman.</p>
+            <p>✅ <b>extends</b> untuk pewarisan, <b>implements</b> untuk kontrak interface.</p>
+            <p>✅ Keduanya membuat kode lebih terstruktur, mudah dikembangkan dan dipelihara.</p>
+        </div>
     </div> 
 
     <footer> 
@@ -922,50 +555,29 @@ void main() {
     </footer> 
 
     <script>
-        // Fungsi untuk membuka modal popup dengan auto-run
         function openModal(url, title) {
             const modal = document.getElementById('modalOverlay');
             const iframe = document.getElementById('modalIframe');
             const titleElement = document.getElementById('modalTitle');
-            
-            // Set source iframe dan judul
             iframe.src = url;
             titleElement.textContent = title;
-            
-            // Tampilkan modal
             modal.style.display = 'flex';
-            
-            // Prevent scrolling di background
             document.body.style.overflow = 'hidden';
         }
         
-        // Fungsi untuk menutup modal
         function closeModal() {
             const modal = document.getElementById('modalOverlay');
             const iframe = document.getElementById('modalIframe');
-            
-            // Sembunyikan modal
             modal.style.display = 'none';
-            
-            // Kosongkan src iframe untuk stop loading
             iframe.src = 'about:blank';
-            
-            // Kembalikan scrolling
             document.body.style.overflow = 'auto';
         }
         
-        // Tutup modal jika klik di luar area modal
         document.getElementById('modalOverlay').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+            if (e.target === this) closeModal();
         });
-        
-        // Tutup modal dengan tombol ESC
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+            if (e.key === 'Escape') closeModal();
         });
     </script>
 </body> 
