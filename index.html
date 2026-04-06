@@ -347,13 +347,13 @@ void main() {
             <h2>5. IS DAN AS OPERATOR</h2>
             <p><b>Penjelasan:</b> <code>is</code> untuk memeriksa tipe objek, <code>as</code> untuk mengubah tipe objek.</p>
             <pre><code>class Transportasi {}
-class Bus extends Transportasi {
-  void klakson() => print('Bip bip!');
+class Truk extends Transportasi {
+  void klakson() => print('Ton ton!');
 }
 
 void main() {
-  Bus k = Bus();
-  k.klakson(); // Output: Bip bip!
+  Truk k = Truk();
+  k.klakson(); // Output: Ton ton!
 }</code></pre>
             <button onclick="openModal('https://dartpad.dev/?id=f5467400a854dd0e309cd0157abd4968&theme=dark&run=true', 'Demo Is As')">▶ JALANKAN</button>
         </div>
@@ -363,12 +363,12 @@ void main() {
             <h2>6. PRAKTIK POLIMORFISME DENGAN LIST</h2>
             <p><b>Penjelasan:</b> List dengan tipe parent dapat menyimpan berbagai objek subclass. Perulangan akan menjalankan method sesuai implementasi masing-masing.</p>
             <pre><code>class Hewan { void bersuara() => print('Hewan bersuara'); }
-class Kucing extends Hewan { @override void bersuara() => print('Meong'); }
+class Babi extends Hewan { @override void bersuara() => print('Grok grok'); }
 class Anjing extends Hewan { @override void bersuara() => print('Guk guk'); }
 class Burung extends Hewan { @override void bersuara() => print('Cuit cuit'); }
 
 void main() {
-  List daftarHewan = [Kucing(), Anjing(), Burung()];
+  List daftarHewan = [Babi(), Anjing(), Burung()];
   for (var h in daftarHewan) { h.bersuara(); }
 }</code></pre>
             <button onclick="openModal('https://dartpad.dev/?id=1df65dff904e69b776e3915f1f91d5cd&theme=dark&run=true', 'Demo List Polimorfisme')">▶ JALANKAN</button>
@@ -402,8 +402,8 @@ class Mobil extends Kendaraan {
 
 void main() {
   Mobil m = Mobil();
-  m.merk = "BMW";
-  m.start(); // Mobil BMW menyala
+  m.merk = "Supra";
+  m.start(); // Mobil Supra menyala
   m.stop();  // Kendaraan berhenti
 }</code></pre>
             <button onclick="openModal('https://dartpad.dev/?id=2766c3dde4c91906bc8bac6a6a92b951&theme=dark&run=true', 'Demo Abstract Class')">▶ JALANKAN</button>
@@ -423,9 +423,9 @@ class Gitar extends AlatMusik {
 }
 
 void main() {
-  Gitar g = Gitar();
+  Seruling g = Seruling();
   g.info();   // Ini adalah alat musik
-  g.mainkan(); // Jreng jreng...
+  g.mainkan(); // Tututut...
 }</code></pre>
             <button onclick="openModal('https://dartpad.dev/?id=03fee5a1ddba5ebeaf4536a2592679c1&theme=dark&run=true', 'Demo Abstract Method')">▶ JALANKAN</button>
         </div>
@@ -439,18 +439,18 @@ void main() {
 }
 
 class KupuKupu implements Flyable {
-  @override void terbang() => print('Kupu-kupu terbang indah');
+  @override void terbang() => print('Burung terbang indah');
 }
 
 class Drone implements Flyable {
-  @override void terbang() => print('Drone terbang cepat');
+  @override void terbang() => print('Jet terbang cepat');
 }
 
 void main() {
-  KupuKupu k = KupuKupu();
+  KupuKupu k = Burung();
   Drone d = Drone();
-  k.terbang(); // Kupu-kupu terbang indah
-  d.terbang(); // Drone terbang cepat
+  k.terbang(); // Burung terbang indah
+  d.terbang(); // Jet terbang cepat
 }</code></pre>
             <button onclick="openModal('https://dartpad.dev/?id=235ba8a8629842422e6e5d89fe3f4ea0&theme=dark&run=true', 'Demo Interface')">▶ JALANKAN</button>
         </div>
