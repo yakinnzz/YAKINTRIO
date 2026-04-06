@@ -3,7 +3,7 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>OOP DART - POLIMORFISME & INHERITANCE | USMAN YAKIN</title> 
+    <title> - POLIMORFISME & INHERITANCE | USMAN YAKIN</title> 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"> 
     <style> 
         body{ 
@@ -236,29 +236,11 @@
 </head> 
 <body> 
     <header> 
-        <h1>🔴 OOP DART - POLIMORFISME & INHERITANCE</h1> 
+        <h1>🔴  - POLIMORFISME & INHERITANCE</h1> 
         <p>USMAN YAKIN TRIO SINADA | NIM: 251410006 | KELAS: SI2A</p> 
     </header> 
     
-    <!-- MODAL POPUP -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="modal-title" id="modalTitle">Demo OOP Dart</span>
-                <div class="modal-close" onclick="closeModal()">×</div>
-            </div>
-            <iframe class="modal-iframe" id="modalIframe" src="about:blank" allow="fullscreen"></iframe>
-        </div>
-    </div>
-    
-    <div class="container"> 
-        <!-- PENGERTIAN OOP -->
-        <div class="comment-box"> 
-            <h2>💀 1. PENGERTIAN OOP</h2> 
-            <p>Object Oriented Programming (OOP) adalah paradigma pemrograman yang menggunakan objek sebagai dasar perancangan program. Konsep utama OOP meliputi <b>Inheritance (pewarisan)</b>, <b>Polymorphism (banyak bentuk)</b>, <b>Encapsulation (pembungkusan)</b>, dan <b>Abstraction (abstraksi)</b>.</p> 
-            <p style="margin-top:10px">Dalam pertemuan ini, kita akan fokus pada <b>Polimorfisme</b> dan <b>Inheritance</b> menggunakan bahasa pemrograman Dart.</p>
-        </div> 
-
+ 
         <!-- DAFTAR ISI -->
         <div class="daftar-isi">
             <a href="#materi1">🐷 1. Polimorfisme Hewan</a>
@@ -491,10 +473,22 @@ void main() {
         <div id="materi8" class="card"> 
             <h2>🔄 8. LOOPING SEDERHANA <span class="status-badge">DART</span></h2> 
             <p>Contoh sederhana perulangan <code>for</code> untuk mencetak "hello" sebanyak 10 kali.</p> 
-            <pre><code>void main() {
-  for (var i = 0; i < 10; i++) {
-    print('hello ${i + 1}');
+            <pre><code// Nama : USMAN YAKIN TRIO SINADA
+// Nim : 251410006
+// Kelas : SI2A
+
+class MathUtils {
+  static double pi = 3.14;
+
+  static int add(int x, int y) {
+    return x + y;
   }
+}
+
+void main() {
+  print('Nilai pi : ${MathUtils.pi}');
+  print('Result : ${MathUtils.add(10, 20)}');
+}
 }</code></pre>
             <div class="btn-group">
                 <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=405cd473df83d9cb184659e691b96d2f&theme=dark&run=true', 'Demo Looping Sederhana')">🔄 JALANKAN (Langsung Output)</button>
@@ -506,40 +500,46 @@ void main() {
             <h2>💼 9. INTERFACE - Pekerja (Programmer, Dokter, Guru) <span class="status-badge">DART</span></h2> 
             <p>Implementasi interface pada tiga kelas berbeda: Programmer, Dokter, dan Guru.</p> 
             <pre><code>// Nama : USMAN YAKIN TRIO SINADA
-// NIM  : 251410006
-// Kelas: SI2A
+// Nim : 251410006
+// Kelas : SI2A
 
-abstract class Pekerja {
-  void bekerja();
+abstract class MetodePembayaran {
+  void bayar(double jumlah);
 }
 
-void info() => print('Ini adalah pekerja');
-
-class Programmer implements Pekerja {
-  @override void bekerja() => print('Programmer sedang coding');
-  void info() => print('Pekerja: Programmer');
+class KartuKredit implements MetodePembayaran {
+  @override
+  void bayar(double jumlah) {
+    print('Bayar $jumlah dengan Kartu Kredit');
+  }
 }
 
-class Dokter implements Pekerja {
-  @override void bekerja() => print('Dokter sedang memeriksa pasien');
-  void info() => print('Pekerja: Dokter');
+class EWallet implements MetodePembayaran {
+  @override
+  void bayar(double jumlah) {
+    print('Bayar $jumlah dengan E-Wallet');
+  }
 }
 
-class Guru implements Pekerja {
-  @override void bekerja() => print('Guru sedang mengajar');
-  void info() => print('Pekerja: Guru');
+class Tunai implements MetodePembayaran {
+  @override
+  void bayar(double jumlah) {
+    print('Bayar $jumlah dengan Tunai');
+  }
 }
 
 void main() {
-  List daftar = [Programmer(), Dokter(), Guru()];
-  for (var p in daftar) {
-    p.info();
-    p.bekerja();
-    print('---');
-  }
+  MetodePembayaran m1 = KartuKredit();
+  MetodePembayaran m2 = EWallet();
+  MetodePembayaran m3 = Tunai();
+
+  m1.bayar(100000);
+  m2.bayar(75000);
+  m3.bayar(50000);
+}
 }</code></pre>
             <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo Interface - Pekerja')">💼 JALANKAN (Langsung Output)</button>
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=0573c74382c52c09908888ba247f525&theme=dark&run=true', 'Demo Interface - Pekerja')">💼 JALANKAN (Langsung Output)</button>
             </div>
         </div> 
 
@@ -547,39 +547,213 @@ void main() {
         <div id="materi10" class="card"> 
             <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
             <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
-            <pre><code>// Nama   : USMAN YAKIN TRIO SINADA
-// NIM    : 251410006
-// Kelas  : S12A
+            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
+// Nim : 251410006
+// Kelas : SI2A
 
-class Komputer {
-  void mengetik() => print('Mengetik...');
+abstract class Bentuk {
+  double hitungLuas();
+  double hitungKeliling();
+
+  void info() {
+    print('Luas: ${hitungLuas()} , Keliling: ${hitungKeliling()}');
+  }
 }
 
-class Kamera {
-  void foto() => print('Mengambil foto...');
+class Persegi  implements Bentuk {
+  double sisi;
+  Persegi(this.sisi);
+
+  @override
+  double hitungLuas() => sisi * sisi;
+
+  @override
+  double hitungKeliling() => 4 * sisi;
+
+  @override
+  void info() {
+    print(
+      'Persegi dengan sisi $sisi memiliki luas ${hitungLuas()} dan keliling ${hitungKeliling()}'
+    );
+  }
 }
 
-class Telepon {
-  void telepon() => print('Menelpon...');
-}
+class Lingkaran implements Bentuk {
+  double radius;
+  Lingkaran(this.radius);
 
-class Tablet implements Komputer, Kamera, Telepon {
-  @override void mengetik() => print('Tablet bisa mengetik');
-  @override void foto() => print('Tablet bisa foto');
-  @override void telepon() => print('Tablet bisa telepon');
+  @override
+  double hitungLuas() => 3.14 * radius * radius;
+
+  @override
+  double hitungKeliling() => 2 * 3.14 * radius;
+
+  @override
+  void info() {
+    print(
+      'Lingkaran dengan radius $radius memiliki luas ${hitungLuas()} dan keliling ${hitungKeliling()}'
+    );
+  }
 }
 
 void main() {
-  Tablet t = Tablet();
-  t.mengetik();
-  t.foto();
-  t.telepon();
+  Bentuk b1 = Persegi(4);
+  Bentuk b2 = Lingkaran(7);
+
+  b1.info();
+  b2.info();
+}
 }</code></pre>
             <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=2ef67fa3cc5dac5d94eaf54440d1577d&theme=dark&run=true', 'Demo Multiple Inheritance - Tablet')">📱 JALANKAN (Langsung Output)</button>
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=1e32dcfbc2ddd60f081da41ae439416e&theme=dark&run=true', 'Demo Multiple Inheritance - Tablet')">📱 JALANKAN (Langsung Output)</button>
             </div>
         </div> 
 
+      <!-- MATERI 11: MULTIPLE INHERITANCE TABLET -->
+        <div id="materi10" class="card"> 
+            <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
+            <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
+            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
+// NIM : 251410006
+// Kelas : SI2A
+
+abstract class Pekerja {
+  void bekerja(); // abstract
+}
+
+void info() {
+  print('Ini adalah pekerja');
+}
+
+class Programmer implements Pekerja {
+  @override
+  void bekerja() {
+    print('Programmer sedang coding');
+  }
+
+  @override
+  void info() {
+    print('Pekerja: Programmer');
+  }
+}
+
+class Dokter implements Pekerja {
+  @override
+  void bekerja() {
+    print('Dokter sedang memeriksa pasien');
+  }
+
+  @override
+  void info() {
+    print('Pekerja: Dokter');
+  }
+}
+
+class Guru implements Pekerja {
+  @override
+  void bekerja() {
+    print('Guru sedang mengajar');
+  }
+
+  @override
+  void info() {
+    print('Pekerja: Guru');
+  }
+}
+
+void main() {
+  List daftar = [
+    Programmer(),
+    Dokter(),
+    Guru(),
+  ];
+
+  for (var p in daftar) {
+    p.info();
+    p.bekerja();
+    print('---');
+  }
+}}</code></pre>
+            <div class="btn-group">
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo Multiple Inheritance - Tablet')">📱 JALANKAN (Langsung Output)</button>
+            </div>
+        </div> 
+
+      <!-- MATERI 12: MULTIPLE INHERITANCE TABLET -->
+        <div id="materi10" class="card"> 
+            <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
+            <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
+            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
+// NIM : 251410006
+// Kelas : SI2A
+
+abstract class Pekerja {
+  void bekerja(); // abstract
+}
+
+void info() {
+  print('Ini adalah pekerja');
+}
+
+class Programmer implements Pekerja {
+  @override
+  void bekerja() {
+    print('Programmer sedang coding');
+  }
+
+  @override
+  void info() {
+    print('Pekerja: Programmer');
+  }
+}
+
+class Dokter implements Pekerja {
+  @override
+  void bekerja() {
+    print('Dokter sedang memeriksa pasien');
+  }
+
+  @override
+  void info() {
+    print('Pekerja: Dokter');
+  }
+}
+
+class Guru implements Pekerja {
+  @override
+  void bekerja() {
+    print('Guru sedang mengajar');
+  }
+
+  @override
+  void info() {
+    print('Pekerja: Guru');
+  }
+}
+
+void main() {
+  List daftar = [
+    Programmer(),
+    Dokter(),
+    Guru(),
+  ];
+
+  for (var p in daftar) {
+    p.info();
+    p.bekerja();
+    print('---');
+  }
+}</code></pre>
+            <div class="btn-group">
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=2ef67fa3cc5dac5d94eaf54440d1577ddark&run=true', 'Demo Multiple Inheritance - Tablet')">📱 JALANKAN (Langsung Output)</button>
+            </div>
+        </div> 
+
+     <!-- MATERI 12: MULTIPLE INHERITANCE TABLET -->
+        <div id="materi10" class="card"> 
+            <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
+            <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
+            <pre><code>
         <!-- KESIMPULAN -->
         <div class="card"> 
             <h2>🎯 KESIMPULAN</h2> 
