@@ -609,10 +609,10 @@ void main() {
             </div>
         </div> 
 
-      <!-- MATERI 11: MULTIPLE INHERITANCE TABLET -->
-        <div id="materi10" class="card"> 
-            <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
+      <!-- MATERI 11: Class pekerja TABLET -->
+        <div id="materi11" class="card"> 
+            <h2>📱 11. Classpekerja - Tablet <span class="status-badge">DART</span></h2> 
+            <p>Dart mendukung <b>class pekerja</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
             <pre><code>// Nama : USMAN YAKIN TRIO SINADA
 // NIM : 251410006
 // Kelas : SI2A
@@ -675,14 +675,14 @@ void main() {
   }
 }}</code></pre>
             <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo Multiple Inheritance - Tablet')">📱 JALANKAN (Langsung Output)</button>
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo classpekerja - Tablet')">📱 JALANKAN (Langsung Output)</button>
             </div>
         </div> 
 
-      <!-- MATERI 12: MULTIPLE INHERITANCE TABLET -->
+      <!-- MATERI 12: Classkomputer TABLET -->
         <div id="materi10" class="card"> 
-            <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
+            <h2>📱 12 classkomputer - Tablet <span class="status-badge">DART</span></h2> 
+            <p>Dart mendukung <b>classkomputer</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
             <pre><code>// Nama : USMAN YAKIN TRIO SINADA
 // NIM : 251410006
 // Kelas : SI2A
@@ -745,15 +745,163 @@ void main() {
   }
 }</code></pre>
             <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=2ef67fa3cc5dac5d94eaf54440d1577ddark&run=true', 'Demo Multiple Inheritance - Tablet')">📱 JALANKAN (Langsung Output)</button>
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=2ef67fa3cc5dac5d94eaf54440d1577ddark&run=true', 'Demo classkomputer - Tablet')">📱 JALANKAN (Langsung Output)</button>
             </div>
         </div> 
 
-     <!-- MATERI 12: MULTIPLE INHERITANCE TABLET -->
-        <div id="materi10" class="card"> 
-            <h2>📱 10. MULTIPLE INHERITANCE - Tablet <span class="status-badge">DART</span></h2> 
-            <p>Dart mendukung <b>multiple inheritance</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
-            <pre><code>
+     <!-- MATERI 13:  Mathutilsclass TABLET -->
+        <div id="materi13" class="card"> 
+            <h2>📱 13. Mathutilsclass - Tablet <span class="status-badge">DART</span></h2> 
+            <p>Dart mendukung <b>mathutilsclass</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
+            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
+// NIM : 251410006
+// Kelas : SI2A
+
+import 'dart:math';
+
+class MathUtils {
+  static int faktorial(int n) {
+    if (n <= 1) return 1;
+    return n * faktorial(n - 1);
+  }
+
+  static bool isPrima(int n) {
+    if (n < 2) return false;
+
+    for (int i = 2; i <= sqrt(n); i++) {
+      if (n % i == 0) return false;
+    }
+    return true;
+  }
+
+  static double roundDouble(double value, int decimal) {
+    double mod = pow(10, decimal).toDouble();
+    return (value * mod).round() / mod;
+  }
+
+  static int randomInt(int min, int max) {
+    return min + Random().nextInt(max - min + 1);
+  }
+
+  static double randomDouble(double min, double max) {
+    return min + Random().nextDouble() * (max - min);
+  }
+
+  static double rataRata(List data) {
+    return data.reduce((a, b) => a + b) / data.length;
+  }
+
+  static double median(List data) {
+    var sorted = List.from(data);
+    sorted.sort();
+    int n = sorted.length;
+
+    if (n % 2 == 1) {
+      return sorted[n ~/ 2].toDouble();
+    } else {
+      return (sorted[n ~/ 2 - 1] + sorted[n ~/ 2]) / 2;
+    }
+  }
+}</code></pre>
+            <div class="btn-group">
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=277c0033b3436e0d23cae8917d889f17&run=true', 'Demo Mathutilsclass - Tablet')">📱 JALANKAN (Langsung Output)</button>
+            </div>
+        </div> 
+
+     <!-- MATERI 14:  Media Player TABLET -->
+        <div id="materi14" class="card"> 
+            <h2>📱 14.Media Player - Tablet <span class="status-badge">DART</span></h2> 
+            <p>Dart mendukung <b>Media Player</b> melalui interface (implements). Tablet mengimplementasikan 3 interface: Komputer, Kamera, Telepon.</p> 
+            <pre><code>// Nama : USMAN YAKIN TRIO SINADA
+// NIM : 251410006
+// Kelas : SI2A
+
+abstract class MediaPlayer {
+  void load(String file);
+}
+
+abstract class Playable {
+  void play();
+}
+
+abstract class Pausable {
+  void pause();
+}
+
+class AudioPlayer extends MediaPlayer implements Playable, Pausable {
+  String? file;
+
+  @override
+  void load(String file) {
+    this.file = file;
+    print('Audio dimuat: $file');
+  }
+
+  @override
+  void play() {
+    print('Audio diputar');
+  }
+
+  @override
+  void pause() {
+    print('Audio dijeda');
+  }
+}
+
+class VideoPlayer extends MediaPlayer implements Playable, Pausable {
+  String? file;
+
+  @override
+  void load(String file) {
+    this.file = file;
+    print('Video dimuat: $file');
+  }
+
+  @override
+  void play() {
+    print('Video diputar');
+  }
+
+  @override
+  void pause() {
+    print('Video dijeda');
+  }
+}
+
+void main() {
+  List players = [
+    AudioPlayer(),
+    VideoPlayer(),
+  ];
+
+  for (var p in players) {
+    p.load('file.mp3 / file.mp4');
+
+    if (p is Playable) {
+      p.play();
+    }
+
+    if (p is Pausable) {
+      p.pause();
+    }
+
+    print('---');
+  }
+}</code></pre>
+            <div class="btn-group">
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=3e1c07a47e539adc068196207ce1f6b1&run=true', 'Demo Media Player - Tablet')">📱 JALANKAN (Langsung Output)</button>
+            </div>
+        </div> 
+
+void main() {
+  print(MathUtils.faktorial(5));
+  print(MathUtils.isPrima(7));
+  print(MathUtils.roundDouble(3.14159, 2));
+  print(MathUtils.randomInt(1, 10));
+  print(MathUtils.randomDouble(1, 5));
+  print(MathUtils.rataRata([1, 2, 3, 4]));
+  print(MathUtils.median([1, 2, 3, 4, 5]));
+}
         <!-- KESIMPULAN -->
         <div class="card"> 
             <h2>🎯 KESIMPULAN</h2> 
