@@ -3,110 +3,279 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>POLIMORFISME DAN ABSTRAKSI - USMAN YAKIN</title> 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet"> 
+    <title>POLIMORFISME & ABSTRAKSI - USMAN YAKIN</title> 
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
     <style> 
-        body{ 
-            margin:0; 
-            font-family:'Orbitron',sans-serif; 
-            background:#000; 
-            color:#00ff9f; 
-            background-image: linear-gradient(rgba(0,255,150,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,150,0.08) 1px, transparent 1px); 
-            background-size:40px 40px; 
-        } 
-        header{ 
-            text-align:center; 
-            padding:40px; 
-            background:#010a05; 
-            border-bottom:3px solid #00ff9f; 
-            box-shadow:0 0 25px #00ff9f; 
-        } 
-        header h1{ 
-            font-size:26px; 
-            color:#00ff9f; 
-            text-shadow:0 0 10px #00ff9f,0 0 30px #00ff9f; 
-        } 
-        header p{ 
-            color:#7affc7; 
-        } 
-        .container{ 
-            max-width:1100px; 
-            margin:auto; 
-            padding:40px 20px; 
-        } 
-        .card{ 
-            background:rgba(0,20,10,0.85); 
-            padding:25px; 
-            margin-bottom:30px; 
-            border:1px solid #00ff9f; 
-            border-radius:10px; 
-            box-shadow:0 0 15px #00ff9f inset,0 0 20px #00ff9f; 
-            transition:0.3s; 
-        } 
-        .card:hover{ 
-            box-shadow:0 0 25px #00ff9f,0 0 60px #00ff9f; 
-            transform:translateY(-6px); 
-        } 
-        h2{ 
-            color:#00ff9f; 
-            margin-bottom:15px; 
-            text-shadow:0 0 10px #00ff9f; 
-            font-size: 1.6em;
-        } 
-        h3 {
-            color: #00ff9f;
-            margin: 10px 0;
-            font-size: 1.2em;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        p{ 
-            line-height:1.6; 
-            color:#b8ffe7; 
-            margin-bottom:10px;
-        } 
-        pre{ 
-            background:#000; 
-            color:#00ff9f; 
-            padding:15px; 
-            border-radius:10px; 
-            border:1px solid #00ff9f; 
-            box-shadow:0 0 10px #00ff9f inset; 
-            overflow-x:auto; 
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #1a1a3e 50%, #0a0a2a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== BINTANG COSMIC ===== */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .stars::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 15px 60px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 72px 436px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 155px 128px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 280px 345px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 450px 175px, #fff, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 580px 400px, #ffd700, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 720px 220px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 860px 550px, #fff, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 950px 120px, #7dd3fc, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 1100px 380px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 1300px 200px, #fff, rgba(0,0,0,0)),
+                radial-gradient(3px 3px at 1500px 500px, #ff6b6b, rgba(0,0,0,0));
+            background-repeat: repeat;
+            animation: starsMove 200s linear infinite;
+        }
+
+        @keyframes starsMove {
+            from { background-position: 0 0; }
+            to { background-position: 0 2000px; }
+        }
+
+        /* Nebula effect */
+        .nebula {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 40%, rgba(138, 43, 226, 0.15), transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(255, 100, 200, 0.1), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header Cosmic */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(145deg, rgba(20, 15, 45, 0.95), rgba(10, 10, 40, 0.95));
+            border-bottom: 2px solid #7dd3fc;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+        }
+
+        header h1 {
+            font-size: 3em;
+            background: linear-gradient(135deg, #7dd3fc, #a78bfa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-family: 'Orbitron', monospace;
+        }
+
+        header p {
+            color: #94a3b8;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Intro Box */
+        .intro-box {
+            background: linear-gradient(145deg, rgba(30, 25, 60, 0.9), rgba(15, 10, 35, 0.9));
+            border: 1px solid #7dd3fc;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(125, 211, 252, 0.2);
+        }
+
+        .intro-box h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+            font-family: 'Orbitron', monospace;
+        }
+
+        .intro-box p {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        /* Daftar Isi */
+        .daftar-isi {
+            background: rgba(30, 25, 60, 0.7);
+            border: 1px solid #7dd3fc;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .daftar-isi a {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 8px 18px;
+            border: 1px solid #7dd3fc;
+            border-radius: 30px;
+            font-size: 0.85em;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .daftar-isi a:hover {
+            background: #7dd3fc;
+            color: #0a0a2a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(125, 211, 252, 0.4);
+        }
+
+        /* Card */
+        .card {
+            background: linear-gradient(145deg, rgba(35, 30, 70, 0.85), rgba(20, 15, 45, 0.85));
+            border: 1px solid #7dd3fc;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(125, 211, 252, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .card:hover::before {
+            left: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(125, 211, 252, 0.3);
+            border-color: #a78bfa;
+        }
+
+        .card h2 {
+            color: #7dd3fc;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-family: 'Orbitron', monospace;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(125, 211, 252, 0.2);
+            border: 1px solid #7dd3fc;
+            color: #7dd3fc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: normal;
+            margin-left: 10px;
+        }
+
+        .code-container {
+            background: #0a0a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 15px 0;
+            border: 1px solid #2d2d5a;
+        }
+
+        .code-header {
+            background: #1a1a3e;
+            padding: 10px 15px;
+            border-bottom: 1px solid #2d2d5a;
+            font-size: 0.85em;
+            color: #7dd3fc;
+            font-family: monospace;
+        }
+
+        pre {
+            background: #0a0a1a;
+            color: #a5b4fc;
+            padding: 20px;
+            overflow-x: auto;
             font-size: 13px;
+            font-family: 'Courier New', monospace;
             white-space: pre-wrap;
             word-wrap: break-word;
-            margin:15px 0;
-        } 
-        .comment-box{ 
-            background:#000; 
-            padding:20px; 
-            border-radius:10px; 
-            border:1px solid #00ff9f; 
-            box-shadow:0 0 20px #00ff9f; 
-            margin-bottom:30px; 
-        } 
-        .btn-group{ 
-            display:flex; 
-            flex-wrap:wrap; 
-            gap:10px; 
-            margin:15px 0; 
-        } 
-        button{ 
-            background:#00ff9f; 
-            color:black; 
-            border:none; 
-            padding:8px 18px; 
-            cursor:pointer; 
-            box-shadow:0 0 10px #00ff9f; 
-            font-family:'Orbitron'; 
-            transition: 0.3s;
+            margin: 0;
+        }
+
+        button {
+            background: linear-gradient(135deg, #7dd3fc, #a78bfa);
+            color: #0a0a2a;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-family: 'Orbitron', monospace;
             font-weight: bold;
-        } 
-        button:hover{ 
-            box-shadow:0 0 20px #00ff9f,0 0 40px #00ff9f; 
+            transition: all 0.3s;
+            margin-top: 10px;
+            font-size: 0.85em;
+        }
+
+        button:hover {
             transform: scale(1.05);
-        } 
-        
-        /* MODAL POPUP */
+            box-shadow: 0 0 20px rgba(125, 211, 252, 0.6);
+        }
+
+        /* Modal */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -120,50 +289,44 @@
             align-items: center;
             backdrop-filter: blur(10px);
         }
-        
+
         .modal-content {
             width: 95%;
             height: 95%;
-            background: #0a0a0a;
-            border: 3px solid #00ff9f;
-            border-radius: 15px;
-            box-shadow: 0 0 50px #00ff9f, 0 0 100px #00ff9f inset;
+            background: #0a0a1a;
+            border: 2px solid #7dd3fc;
+            border-radius: 20px;
             position: relative;
-            animation: glowPulse 2s infinite;
+            box-shadow: 0 0 50px rgba(125, 211, 252, 0.5);
         }
-        
-        @keyframes glowPulse {
-            0% { box-shadow: 0 0 30px #00ff9f, 0 0 60px #00ff9f inset; }
-            50% { box-shadow: 0 0 60px #00ff9f, 0 0 100px #00ff9f inset; }
-            100% { box-shadow: 0 0 30px #00ff9f, 0 0 60px #00ff9f inset; }
-        }
-        
+
         .modal-header {
             position: absolute;
-            top: -40px;
+            top: -45px;
             left: 20px;
             right: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #00ff9f;
-            font-size: 18px;
+            color: #7dd3fc;
         }
-        
+
         .modal-title {
-            background: #000;
+            background: #0a0a1a;
             padding: 8px 20px;
-            border: 2px solid #00ff9f;
+            border: 2px solid #7dd3fc;
             border-radius: 30px;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9em;
         }
-        
+
         .modal-close {
-            width: 45px;
-            height: 45px;
-            background: #00ff9f;
+            width: 40px;
+            height: 40px;
+            background: #7dd3fc;
             border-radius: 50%;
-            color: black;
-            font-size: 28px;
+            color: #0a0a2a;
+            font-size: 24px;
             font-weight: bold;
             cursor: pointer;
             display: flex;
@@ -171,68 +334,58 @@
             align-items: center;
             transition: 0.3s;
         }
-        
+
         .modal-close:hover {
-            transform: scale(1.2) rotate(90deg);
+            transform: rotate(90deg);
+            box-shadow: 0 0 20px #7dd3fc;
         }
-        
+
         .modal-iframe {
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 12px;
-            background: white;
-        }
-        
-        footer{ 
-            text-align:center; 
-            padding:20px; 
-            background:#010a05; 
-            border-top:3px solid #00ff9f; 
-            color:#7affc7; 
-        } 
-
-        .badge {
-            display: inline-block;
-            background: #00ff9f;
-            color: black;
-            padding: 3px 10px;
-            border-radius: 15px;
-            font-size: 11px;
-            margin-left: 10px;
+            border-radius: 18px;
         }
 
-        .daftar-isi {
-            background: rgba(0,20,10,0.7);
-            border: 1px solid #00ff9f;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            justify-content: center;
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(145deg, rgba(20, 15, 45, 0.95), rgba(10, 10, 40, 0.95));
+            border-top: 2px solid #7dd3fc;
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
         }
 
-        .daftar-isi a {
-            color: #00ff9f;
-            text-decoration: none;
-            padding: 6px 15px;
-            border: 1px solid #00ff9f;
-            border-radius: 25px;
-            font-size: 12px;
-            transition: all 0.3s;
+        footer p {
+            color: #94a3b8;
         }
 
-        .daftar-isi a:hover {
-            background: #00ff9f;
-            color: #000;
+        /* List styling */
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+            color: #cbd5e1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 1.8em; }
+            .card h2 { font-size: 1.3em; }
+            .daftar-isi a { padding: 5px 12px; font-size: 0.75em; }
         }
     </style> 
 </head> 
 <body> 
+    <div class="stars"></div>
+    <div class="nebula"></div>
+
     <header> 
-        <h1>🔷 POLIMORFISME & ABSTRAKSI 🔷</h1> 
+        <h1>✨ POLIMORFISME & ABSTRAKSI ✨</h1> 
         <p>USMAN YAKIN TRIO SINADA | NIM: 251410006 | KELAS: SI2A</p> 
     </header> 
     
@@ -249,282 +402,228 @@
     
     <div class="container"> 
         <!-- PENGERTIAN -->
-        <div class="comment-box"> 
-            <h2>💡 PENGERTIAN POLIMORFISME & ABSTRAKSI</h2> 
-            <p><b>Polimorfisme</b> (banyak bentuk) - objek dapat diperlakukan sebagai bentuk yang berbeda.</p>
-            <p><b>Abstraksi</b> - menyembunyikan detail implementasi, hanya menampilkan fungsi penting.</p>
+        <div class="intro-box"> 
+            <h2>💡 POLIMORFISME & ABSTRAKSI</h2> 
+            <p><strong>Polimorfisme</strong> (banyak bentuk) - objek dapat diperlakukan sebagai bentuk yang berbeda, method yang sama dapat memiliki perilaku berbeda.</p>
+            <p><strong>Abstraksi</strong> - menyembunyikan detail implementasi, hanya menampilkan fungsi penting kepada pengguna.</p>
         </div> 
 
         <!-- DAFTAR ISI -->
         <div class="daftar-isi">
-            <a href="#m1">1. Pewarisan</a>
-            <a href="#m2">2. Polimorfisme</a>
-            <a href="#m3">3. Polimorfisme Inheritance</a>
-            <a href="#m4">4. Manfaat</a>
-            <a href="#m5">5. Is dan As</a>
-            <a href="#m6">6. Praktik List</a>
-            <a href="#m7">7. Abstraksi</a>
-            <a href="#m8">8. Abstract Class</a>
-            <a href="#m9">9. Abstract Method</a>
-            <a href="#m10">10. Interface</a>
-            <a href="#m11">11. Extends vs Implements</a>
-            <a href="#m12">12. Static Member</a>
-            <a href="#m13">13. Sistem Pembayaran</a>
-            <a href="#m14">14. Bentuk Geometri</a>
+            <a href="#m1">1. Hewan</a>
+            <a href="#m2">2. Bentuk</a>
+            <a href="#m3">3. Kendaraan</a>
+            <a href="#m4">4. AlatMusik</a>
+            <a href="#m5">5. Interface</a>
+            <a href="#m6">6. Static</a>
+            <a href="#m7">7. Pembayaran</a>
+            <a href="#m8">8. Geometri</a>
+            <a href="#m9">9. Bonus 1</a>
+            <a href="#m10">10. Bonus 2</a>
+            <a href="#m11">11. Bonus 3</a>
+            <a href="#m12">12. Bonus 4</a>
+            <a href="#m13">13. Bonus 5</a>
+            <a href="#m14">14. MediaPlayer</a>
         </div>
 
-        <!-- 1. PENGERTIAN PEWARISAN -->
+        <!-- 1. HEWAN -->
         <div id="m1" class="card"> 
-            <h2>1. PENGERTIAN PEWARISAN <span class="badge">extends</span></h2>
-            <p><b>Penjelasan:</b> Inheritance memungkinkan class child mewarisi properti dan method dari class parent.</p>
-            <pre><code>// Nama  : USMAN YAKIN TRIO SINADA
-// NIM   : 251410006
-// Kelas : SI2A
+            <h2>1. Class Hewan <span class="badge">Polimorfisme</span></h2>
+            <p>Kelas abstrak Hewan memiliki metode bersuara() yang belum diimplementasikan. Subkelas seperti Kucing, Anjing, dan Burung kemudian menyediakan implementasi unik untuk bersuara().</p>
+            <div class="code-container">
+                <div class="code-header">📁 hewan.dart</div>
+                <pre><code>abstract class Hewan {
+  String nama = "Hewan";
+  void bersuara();
+}
 
-class Hewan {
-  void bersuara() => print('...');
+class Kucing extends Hewan {
+  Kucing() { nama = "Kucing"; }
+  @override void bersuara() => print('$nama: Meong');
 }
 
 class Anjing extends Hewan {
-  @override
-  void bersuara() => print('Guk Guk');
+  Anjing() { nama = "Anjing"; }
+  @override void bersuara() => print('$nama: Guk guk');
+}
+
+class Burung extends Hewan {
+  Burung() { nama = "Burung"; }
+  @override void bersuara() => print('$nama: Cuit cuit');
 }
 
 void main() {
-  Hewan hewan = Anjing();
-  hewan.bersuara(); // Output: Guk Guk
+  List daftarHewan = [Kucing(), Anjing(), Burung()];
+  for (var h in daftarHewan) h.bersuara();
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=ce1b77c7e9fcebff8faf9d3c2b929285&theme=dark&run=true', 'Demo Pewarisan')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=ce1b77c7e9fcebff8faf9d3c2b929285&theme=dark&run=true', 'Demo Class Hewan')">▶ JALANKAN KODE</button>
         </div>
 
-        <!-- 2. PENGANTAR POLIMORFISME -->
+        <!-- 2. BENTUK -->
         <div id="m2" class="card"> 
-            <h2>2. PENGANTAR POLIMORFISME <span class="badge">Runtime</span></h2>
-            <p><b>Penjelasan:</b> Poli = banyak, morph = bentuk. Objek subclass dapat diperlakukan sebagai objek superclass.</p>
-            <pre><code>// Contoh: Kucing, Anjing, Burung semua dianggap sebagai Hewan
-// Dart hanya mendukung Runtime Polymorphism (method overriding)</code></pre>
-        </div>
-
-        <!-- 3. POLIMORFISME DENGAN INHERITANCE -->
-        <div id="m3" class="card"> 
-            <h2>3. POLIMORFISME DENGAN INHERITANCE</h2>
-            <p><b>Penjelasan:</b> Referensi tipe parent dapat menampung objek child, memungkinkan satu tipe data untuk berbagai objek.</p>
-            <pre><code>class Bentuk {
+            <h2>2. Class Bentuk <span class="badge">Override</span></h2>
+            <p>Contoh polimorfisme melalui method overriding. Kelas Bentuk memiliki metode gambar() default. Lingkaran dan Persegi menimpa metode ini untuk menampilkan pesan spesifik.</p>
+            <div class="code-container">
+                <div class="code-header">📁 bentuk.dart</div>
+                <pre><code>class Bentuk {
   void gambar() => print('Menggambar bentuk');
 }
 
+class Lingkaran extends Bentuk {
+  @override void gambar() => print('Menggambar lingkaran');
+}
+
 class Persegi extends Bentuk {
-  @override void gambar() => print('Menggambar Persegi');
-}
-
-class PersegiPanjang extends Bentuk {
-  @override void gambar() => print('Menggambar Persegi Panjang');
+  @override void gambar() => print('Menggambar persegi');
 }
 
 void main() {
-  Bentuk b1 = Persegi();
-  Bentuk b2 = PersegiPanjang();
-  b1.gambar(); // Menggambar Persegi
-  b2.gambar(); // Menggambar Persegi Panjang
+  List daftarBentuk = [Lingkaran(), Persegi()];
+  for (var bentuk in daftarBentuk) bentuk.gambar();
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=c649bbcaef61985f7672182f2fda2449&theme=dark&run=true', 'Demo Polimorfisme Inheritance')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c649bbcaef61985f7672182f2fda2449&theme=dark&run=true', 'Demo Class Bentuk')">▶ JALANKAN KODE</button>
         </div>
 
-        <!-- 4. MANFAAT POLIMORFISME -->
-        <div id="m4" class="card"> 
-            <h2>4. MANFAAT POLIMORFISME</h2>
-            <p><b>Penjelasan:</b> Fleksibel, mudah dikembangkan, kode dapat digunakan ulang, dan perawatan lebih mudah.</p>
-            <ul style="color:#b8ffe7; margin-left:20px;">
-                <li>✅ Fleksibilitas untuk berbagai jenis objek</li>
-                <li>✅ Penambahan tipe baru tanpa mengubah banyak kode</li>
-                <li>✅ Penggunaan ulang method dari class induk</li>
-                <li>✅ Kemudahan perawatan program</li>
-            </ul>
-        </div>
-
-        <!-- 5. IS DAN AS OPERATOR -->
-        <div id="m5" class="card"> 
-            <h2>5. IS DAN AS OPERATOR</h2>
-            <p><b>Penjelasan:</b> <code>is</code> untuk memeriksa tipe objek, <code>as</code> untuk mengubah tipe objek.</p>
-            <pre><code>class Transportasi {}
-class Truk extends Transportasi {
-  void klakson() => print('Ton ton!');
-}
-
-void main() {
-  Truk k = Truk();
-  k.klakson(); // Output: Ton ton!
-}</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=f5467400a854dd0e309cd0157abd4968&theme=dark&run=true', 'Demo Is As')">▶ JALANKAN</button>
-        </div>
-
-        <!-- 6. PRAKTIK POLIMORFISME DENGAN LIST -->
-        <div id="m6" class="card"> 
-            <h2>6. PRAKTIK POLIMORFISME DENGAN LIST</h2>
-            <p><b>Penjelasan:</b> List dengan tipe parent dapat menyimpan berbagai objek subclass. Perulangan akan menjalankan method sesuai implementasi masing-masing.</p>
-            <pre><code>class Hewan { void bersuara() => print('Hewan bersuara'); }
-class Babi extends Hewan { @override void bersuara() => print('Grok grok'); }
-class Anjing extends Hewan { @override void bersuara() => print('Guk guk'); }
-class Burung extends Hewan { @override void bersuara() => print('Cuit cuit'); }
-
-void main() {
-  List daftarHewan = [Babi(), Anjing(), Burung()];
-  for (var h in daftarHewan) { h.bersuara(); }
-}</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=1df65dff904e69b776e3915f1f91d5cd&theme=dark&run=true', 'Demo List Polimorfisme')">▶ JALANKAN</button>
-        </div>
-
-        <!-- 7. PENGANTAR ABSTRAKSI -->
-        <div id="m7" class="card"> 
-            <h2>7. PENGANTAR ABSTRAKSI</h2>
-            <p><b>Penjelasan:</b> Menyembunyikan detail implementasi, hanya menampilkan bagian penting dari objek kepada pengguna.</p>
-            <ul style="color:#b8ffe7; margin-left:20px;">
-                <li>🔹 Menyederhanakan sistem</li>
-                <li>🔹 Mengurangi kompleksitas</li>
-                <li>🔹 Meningkatkan keamanan</li>
-                <li>🔹 Mempermudah pengembangan</li>
-            </ul>
-        </div>
-
-        <!-- 8. ABSTRACT CLASS -->
-        <div id="m8" class="card"> 
-            <h2>8. ABSTRACT CLASS</h2>
-            <p><b>Penjelasan:</b> Class blueprint yang tidak bisa diinstansiasi langsung, hanya bisa digunakan melalui class turunan.</p>
-            <pre><code>abstract class Kendaraan {
-  String? merk;
-  void start();
-  void stop() => print('Kendaraan berhenti');
-}
-
+        <!-- 3. KENDARAAN (is & as) -->
+        <div id="m3" class="card"> 
+            <h2>3. Operator is & as <span class="badge">Type Check</span></h2>
+            <p>Operator <code>is</code> untuk memeriksa tipe objek pada runtime, operator <code>as</code> untuk melakukan type casting.</p>
+            <div class="code-container">
+                <div class="code-header">📁 kendaraan.dart</div>
+                <pre><code>class Kendaraan {}
 class Mobil extends Kendaraan {
-  @override void start() => print('Mobil $merk menyala');
+  void klakson() => print('Tin!');
 }
 
 void main() {
-  Mobil m = Mobil();
-  m.merk = "Supra";
-  m.start(); // Mobil Supra menyala
-  m.stop();  // Kendaraan berhenti
+  Kendaraan k = Mobil();
+  if (k is Mobil) {
+    print("Cek tipe: k adalah Mobil");
+    k.klakson();
+  }
+  (k as Mobil?)?.klakson();
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=2766c3dde4c91906bc8bac6a6a92b951&theme=dark&run=true', 'Demo Abstract Class')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=f5467400a854dd0e309cd0157abd4968&theme=dark&run=true', 'Demo Operator is as')">▶ JALANKAN KODE</button>
         </div>
 
-        <!-- 9. ABSTRACT METHOD -->
-        <div id="m9" class="card"> 
-            <h2>9. ABSTRACT METHOD</h2>
-            <p><b>Penjelasan:</b> Method tanpa implementasi yang wajib di-override oleh class turunan.</p>
-            <pre><code>abstract class AlatMusik {
-  void mainkan(); // abstract method
-  void info() => print('Ini adalah alat musik');
+        <!-- 4. ALAT MUSIK -->
+        <div id="m4" class="card"> 
+            <h2>4. Class AlatMusik <span class="badge">Abstract Class</span></h2>
+            <p>Kelas abstrak AlatMusik dengan metode mainkan() yang abstrak (harus diimplementasikan) dan metode info() yang konkret.</p>
+            <div class="code-container">
+                <div class="code-header">📁 alat_musik.dart</div>
+                <pre><code>abstract class AlatMusik {
+  String nama;
+  AlatMusik(this.nama);
+  void mainkan();
+  void info() => print('Ini adalah alat musik $nama');
 }
 
 class Gitar extends AlatMusik {
-  @override void mainkan() => print('Jreng jreng...');
+  Gitar(String nama) : super(nama);
+  @override void mainkan() => print('Gitar $nama: Jreng jreng...');
 }
 
 void main() {
-  Seruling g = Seruling();
-  g.info();   // Ini adalah alat musik
-  g.mainkan(); // Tututut...
+  Gitar gitar = Gitar("Akustik");
+  gitar.info();
+  gitar.mainkan();
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=03fee5a1ddba5ebeaf4536a2592679c1&theme=dark&run=true', 'Demo Abstract Method')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=03fee5a1ddba5ebeaf4536a2592679c1&theme=dark&run=true', 'Demo Class AlatMusik')">▶ JALANKAN KODE</button>
         </div>
 
-        <!-- 10. INTERFACE DI DART -->
-        <div id="m10" class="card"> 
-            <h2>10. INTERFACE DI DART</h2>
-            <p><b>Penjelasan:</b> Menggunakan <code>implements</code>, class wajib mengimplementasikan semua method dari interface.</p>
-            <pre><code>interface class Flyable {
-  void terbang() => print('Terbang...');
-}
+        <!-- 5. INTERFACE -->
+        <div id="m5" class="card"> 
+            <h2>5. Interface <span class="badge">implements</span></h2>
+            <p>Konsep interface dalam Dart. Kelas mengimplementasikan abstract class yang bertindak sebagai interface.</p>
+            <div class="code-container">
+                <div class="code-header">📁 interface.dart</div>
+                <pre><code>abstract class Kendaraan { void jalan(); }
+abstract class Terbang { void terbang(); }
 
-class KupuKupu implements Flyable {
-  @override void terbang() => print('Burung terbang indah');
-}
-
-class Drone implements Flyable {
-  @override void terbang() => print('Jet terbang cepat');
+class Pesawat implements Kendaraan, Terbang {
+  @override void jalan() => print('Pesawat berjalan di landasan');
+  @override void terbang() => print('Pesawat terbang di udara');
 }
 
 void main() {
-  KupuKupu k = Burung();
-  Drone d = Drone();
-  k.terbang(); // Burung terbang indah
-  d.terbang(); // Jet terbang cepat
+  Pesawat pesawat = Pesawat();
+  pesawat.jalan();
+  pesawat.terbang();
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=235ba8a8629842422e6e5d89fe3f4ea0&theme=dark&run=true', 'Demo Interface')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=235ba8a8629842422e6e5d89fe3f4ea0&theme=dark&run=true', 'Demo Interface')">▶ JALANKAN KODE</button>
         </div>
 
-        <!-- 11. PERBEDAAN EXTENDS VS IMPLEMENTS -->
-        <div id="m11" class="card"> 
-            <h2>11. PERBEDAAN EXTENDS VS IMPLEMENTS</h2>
-            <p><b>Penjelasan:</b> <code>extends</code> mewarisi implementasi, <code>implements</code> hanya mewarisi kontrak (wajib override semua).</p>
-            <pre><code>// extends: bisa menggunakan atau override method dari parent
-// implements: wajib override SEMUA method, tidak mewarisi implementasi</code></pre>
-        </div>
-
-        <!-- 12. STATIC MEMBERS DAN METHOD -->
-        <div id="m12" class="card"> 
-            <h2>12. STATIC MEMBERS DAN METHOD</h2>
-            <p><b>Penjelasan:</b> Static member bisa diakses langsung tanpa membuat objek, cukup dengan nama class.</p>
-            <pre><code>class MathUtils {
+        <!-- 6. STATIC MEMBER -->
+        <div id="m6" class="card"> 
+            <h2>6. Static Member <span class="badge">Tanpa Instansiasi</span></h2>
+            <p>Static member dapat diakses langsung melalui nama kelas tanpa membuat objek.</p>
+            <div class="code-container">
+                <div class="code-header">📁 math_utils.dart</div>
+                <pre><code>class MathUtils {
   static double pi = 3.14;
-  static int add(int x, int y) => x + y;
+  static int add(int a, int b) => a + b;
 }
 
 void main() {
-  print('Nilai pi : ${MathUtils.pi}');      // 3.14
-  print('Result : ${MathUtils.add(10, 20)}'); // 30
+  print('Nilai pi : ${MathUtils.pi}');
+  print('Result   : ${MathUtils.add(10, 20)}');
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=405cd473df83d9cb184659e691b96d2f&theme=dark&run=true', 'Demo Static')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=405cd473df83d9cb184659e691b96d2f&theme=dark&run=true', 'Demo Static Member')">▶ JALANKAN KODE</button>
         </div>
 
-        <!-- 13. SISTEM PEMBAYARAN -->
-        <div id="m13" class="card"> 
-            <h2>13. PRAKTIK - SISTEM PEMBAYARAN</h2>
-            <p><b>Penjelasan:</b> Implementasi interface untuk berbagai metode pembayaran (Kartu Kredit, E-Wallet, Tunai).</p>
-            <pre><code>abstract class MetodePembayaran { void bayar(double jumlah); }
+        <!-- 7. METODE PEMBAYARAN -->
+        <div id="m7" class="card"> 
+            <h2>7. Metode Pembayaran <span class="badge">Interface</span></h2>
+            <p>Interface MetodePembayaran mendefinisikan kontrak bayar(). Kelas KartuKredit dan EWallet mengimplementasikan interface ini.</p>
+            <div class="code-container">
+                <div class="code-header">📁 pembayaran.dart</div>
+                <pre><code>abstract class MetodePembayaran { void bayar(double jumlah); }
 
 class KartuKredit implements MetodePembayaran {
-  @override void bayar(double jumlah) => print('Bayar $jumlah dengan Kartu Kredit');
+  @override void bayar(double jumlah) => print('Bayar Rp$jumlah dengan Kartu Kredit');
 }
 
 class EWallet implements MetodePembayaran {
-  @override void bayar(double jumlah) => print('Bayar $jumlah dengan E-Wallet');
-}
-
-class Tunai implements MetodePembayaran {
-  @override void bayar(double jumlah) => print('Bayar $jumlah dengan Tunai');
+  @override void bayar(double jumlah) => print('Bayar Rp$jumlah dengan E-Wallet');
 }
 
 void main() {
-  MetodePembayaran m1 = KartuKredit();
-  MetodePembayaran m2 = EWallet();
-  MetodePembayaran m3 = Tunai();
-  m1.bayar(100000);
-  m2.bayar(50000);
-  m3.bayar(20000);
+  KartuKredit kartu = KartuKredit();
+  EWallet ewallet = EWallet();
+  kartu.bayar(50000);
+  ewallet.bayar(25000);
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo Sistem Pembayaran')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=c9c2b0bbb7bc0099ffb9df7d3b7d52f5&theme=dark&run=true', 'Demo Metode Pembayaran')">▶ JALANKAN KODE</button>
         </div>
 
-        <!-- 14. BENTUK GEOMETRI -->
-        <div id="m14" class="card"> 
-            <h2>14. STUDI KASUS - BENTUK GEOMETRI</h2>
-            <p><b>Penjelasan:</b> Sistem menghitung luas dan keliling berbagai bangun (Persegi, Lingkaran) dengan abstract class.</p>
-            <pre><code>abstract class Bentuk {
+        <!-- 8. BENTUK GEOMETRI -->
+        <div id="m8" class="card"> 
+            <h2>8. Bentuk Geometri <span class="badge">Abstraksi & Polimorfisme</span></h2>
+            <p>Kelas Bentuk mendefinisikan metode hitungLuas() dan hitungKeliling(). Persegi dan Lingkaran mengimplementasikan rumusnya masing-masing.</p>
+            <div class="code-container">
+                <div class="code-header">📁 geometri.dart</div>
+                <pre><code>abstract class Bentuk {
   double hitungLuas();
   double hitungKeliling();
+  void info() => print('Luas: ${hitungLuas()}, Keliling: ${hitungKeliling()}');
 }
 
-class Persegi implements Bentuk {
+class Persegi extends Bentuk {
   double sisi;
   Persegi(this.sisi);
   @override double hitungLuas() => sisi * sisi;
   @override double hitungKeliling() => 4 * sisi;
 }
 
-class Lingkaran implements Bentuk {
+class Lingkaran extends Bentuk {
   double radius;
   Lingkaran(this.radius);
   @override double hitungLuas() => 3.14 * radius * radius;
@@ -532,44 +631,191 @@ class Lingkaran implements Bentuk {
 }
 
 void main() {
-  Bentuk b1 = Persegi(4);
-  Bentuk b2 = Lingkaran(7);
-  print('Persegi: luas=${b1.hitungLuas()}, keliling=${b1.hitungKeliling()}');
-  print('Lingkaran: luas=${b2.hitungLuas()}, keliling=${b2.hitungKeliling()}');
+  Persegi persegi = Persegi(4);
+  Lingkaran lingkaran = Lingkaran(7);
+  persegi.info();
+  lingkaran.info();
 }</code></pre>
-            <button onclick="openModal('https://dartpad.dev/?id=2ef67fa3cc5dac5d94eaf54440d1577d&theme=dark&run=true', 'Demo Bentuk Geometri')">▶ JALANKAN</button>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=2ef67fa3cc5dac5d94eaf54440d1577d&theme=dark&run=true', 'Demo Bentuk Geometri')">▶ JALANKAN KODE</button>
         </div>
 
-                <!-- 15. POLYMORPHISM - MEDIA PLAYER -->
-        <div class="card"> 
-            <h2>🎵 15. Chalenge - </h2> 
-            <p><b></b> </p>
-            <pre><code>// Nama   : USMAN YAKIN TRIO SINADA
-// Nim    : 251410006
-// Kelas  : SI2A
-
-abstract class MediaPlayer {
-  void play();
+        <!-- 9. BONUS 1 - PEKERJA -->
+        <div id="m9" class="card"> 
+            <h2>9. Bonus 1 - Class Pekerja</h2>
+            <p>Abstract class Pekerja dengan method bekerja() yang diimplementasikan oleh class Programmer.</p>
+            <div class="code-container">
+                <div class="code-header">📁 pekerja.dart</div>
+                <pre><code>abstract class Pekerja {
+  String nama;
+  Pekerja(this.nama);
+  void bekerja();
+  void info() => print("Nama: $nama");
 }
 
+class Programmer extends Pekerja {
+  Programmer(String nama) : super(nama);
+  @override void bekerja() => print("$nama bekerja sebagai Programmer");
+}
+
+void main() {
+  Programmer p = Programmer("Andi");
+  p.info();
+  p.bekerja();
+}</code></pre>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=3a2b1c0d9e8f7a6b5c4d3e2f1a0b9c8d&theme=dark&run=true', 'Demo Pekerja')">▶ JALANKAN KODE</button>
+        </div>
+
+        <!-- 10. BONUS 2 - MULTI PEKERJA -->
+        <div id="m10" class="card"> 
+            <h2>10. Bonus 2 - Multi Class Pekerja</h2>
+            <p>Membuat beberapa class turunan Pekerja dengan perilaku berbeda.</p>
+            <div class="code-container">
+                <div class="code-header">📁 multi_pekerja.dart</div>
+                <pre><code>abstract class Pekerja {
+  String nama;
+  Pekerja(this.nama);
+  void bekerja();
+}
+
+class Programmer extends Pekerja {
+  Programmer(String nama) : super(nama);
+  @override void bekerja() => print("$nama adalah Programmer");
+}
+
+class Dokter extends Pekerja {
+  Dokter(String nama) : super(nama);
+  @override void bekerja() => print("$nama adalah Dokter");
+}
+
+class Guru extends Pekerja {
+  Guru(String nama) : super(nama);
+  @override void bekerja() => print("$nama adalah Guru");
+}
+
+void main() {
+  Programmer p = Programmer("Andi");
+  Dokter d = Dokter("Budi");
+  Guru g = Guru("Citra");
+  p.bekerja();
+  d.bekerja();
+  g.bekerja();
+}</code></pre>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=4a3b2c1d0e9f8a7b6c5d4e3f2a1b0c9d&theme=dark&run=true', 'Demo Multi Pekerja')">▶ JALANKAN KODE</button>
+        </div>
+
+        <!-- 11. BONUS 3 - POLIMORFISME LIST -->
+        <div id="m11" class="card"> 
+            <h2>11. Bonus 3 - Polimorfisme List</h2>
+            <p>Menyimpan berbagai objek ke dalam satu list dan memanggil method secara serentak.</p>
+            <div class="code-container">
+                <div class="code-header">📁 list_polimorfisme.dart</div>
+                <pre><code>abstract class Pekerja {
+  String nama;
+  Pekerja(this.nama);
+  void bekerja();
+}
+
+class Programmer extends Pekerja {
+  Programmer(String nama) : super(nama);
+  @override void bekerja() => print("$nama sedang coding");
+}
+
+class Dokter extends Pekerja {
+  Dokter(String nama) : super(nama);
+  @override void bekerja() => print("$nama sedang mengobati pasien");
+}
+
+class Guru extends Pekerja {
+  Guru(String nama) : super(nama);
+  @override void bekerja() => print("$nama sedang mengajar");
+}
+
+void main() {
+  List daftar = [Programmer("Andi"), Dokter("Budi"), Guru("Citra")];
+  for(var p in daftar) p.bekerja();
+}</code></pre>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d&theme=dark&run=true', 'Demo List Polimorfisme')">▶ JALANKAN KODE</button>
+        </div>
+
+        <!-- 12. BONUS 4 - MULTIPLE INTERFACE -->
+        <div id="m12" class="card"> 
+            <h2>12. Bonus 4 - Multiple Interface</h2>
+            <p>Satu class mengimplementasikan banyak abstract class sekaligus.</p>
+            <div class="code-container">
+                <div class="code-header">📁 multiple_interface.dart</div>
+                <pre><code>abstract class Komputer { void menjalankanProgram(); }
+abstract class Kamera { void ambilFoto(); }
+abstract class Telepon { void menelepon(); }
+
+class Tablet implements Komputer, Kamera, Telepon {
+  @override void menjalankanProgram() => print("Tablet menjalankan program");
+  @override void ambilFoto() => print("Tablet mengambil foto");
+  @override void menelepon() => print("Tablet menelepon");
+}
+
+void main() {
+  Tablet tablet = Tablet();
+  tablet.menjalankanProgram();
+  tablet.ambilFoto();
+  tablet.menelepon();
+}</code></pre>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=6a5b4c3d2e1f0a9b8c7d6e5f4a3b2c1d&theme=dark&run=true', 'Demo Multiple Interface')">▶ JALANKAN KODE</button>
+        </div>
+
+        <!-- 13. BONUS 5 - UTILITY MATH -->
+        <div id="m13" class="card"> 
+            <h2>13. Bonus 5 - Utility Math</h2>
+            <p>Kumpulan fungsi matematika statis seperti faktorial, prima, rata-rata, dan median.</p>
+            <div class="code-container">
+                <div class="code-header">📁 math_utils_full.dart</div>
+                <pre><code>import 'dart:math';
+
+class MathUtils {
+  static int faktorial(int n) => n <= 1 ? 1 : n * faktorial(n-1);
+  static bool cekPrima(int n) {
+    if(n <= 1) return false;
+    for(int i = 2; i <= sqrt(n); i++) if(n % i == 0) return false;
+    return true;
+  }
+  static double rataRata(List list) => list.reduce((a,b)=>a+b) / list.length;
+}
+
+void main() {
+  print("Faktorial 5 = ${MathUtils.faktorial(5)}");
+  print("Prima 7 = ${MathUtils.cekPrima(7)}");
+  print("Rata-rata = ${MathUtils.rataRata([10,20,30,40,50])}");
+}</code></pre>
+            </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d&theme=dark&run=true', 'Demo Utility Math')">▶ JALANKAN KODE</button>
+        </div>
+
+        <!-- 14. MEDIA PLAYER -->
+        <div id="m14" class="card"> 
+            <h2>14. Challenge - Media Player <span class="badge">Polymorphism</span></h2>
+            <p>Implementasi polimorfisme pada berbagai jenis pemutar media (Audio, Video, Streaming).</p>
+            <div class="code-container">
+                <div class="code-header">📁 media_player.dart</div>
+                <pre><code>abstract class MediaPlayer { void play(); }
+
 class AudioPlayer extends MediaPlayer {
-  @override
-  void play() => print('Memutar Audio MP3...');
+  @override void play() => print('Memutar Audio MP3...');
 }
 
 class VideoPlayer extends MediaPlayer {
-  @override
-  void play() => print('Memutar Video MP4...');
+  @override void play() => print('Memutar Video MP4...');
 }
 
 class StreamingPlayer extends MediaPlayer {
-  @override
-  void play() => print('Memutar Live Stream...');
+  @override void play() => print('Memutar Live Stream...');
 }
 
 class Playlist {
   List media = [];
-
   void playAll() => media.forEach((m) => m.play());
 }
 
@@ -578,12 +824,26 @@ void main() {
   list.media = [AudioPlayer(), VideoPlayer(), StreamingPlayer()];
   list.playAll();
 }</code></pre>
-            <div class="btn-group">
-                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=7360f0bafe121323de27201df11173a5&theme=dark&run=true', 'Demo Polymorphism - Media Player')">🎵 JALANKAN POLYMORPHISM (Langsung Output)</button>
             </div>
+            <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=7360f0bafe121323de27201df11173a5&theme=dark&run=true', 'Demo Media Player')">▶ JALANKAN KODE</button>
         </div>
-     
-        © 2026 - USMAN YAKIN TRIO SINADA | NIM: 251410006 | UNIVERSITAS BINADARMA 
+
+        <!-- KESIMPULAN -->
+        <div class="card" style="background: linear-gradient(145deg, rgba(125, 211, 252, 0.15), rgba(167, 139, 250, 0.1));">
+            <h2>📌 KESIMPULAN</h2>
+            <ul>
+                <li>✨ <strong>Abstraksi</strong> menyembunyikan detail implementasi dan hanya menampilkan fungsi penting.</li>
+                <li>✨ <strong>Polimorfisme</strong> memungkinkan satu method memiliki banyak bentuk tergantung objeknya.</li>
+                <li>✨ <strong>Inheritance</strong> memungkinkan pembuatan class baru berdasarkan class yang sudah ada.</li>
+                <li>✨ <strong>Interface</strong> berfungsi sebagai kontrak yang memaksa class turunan mengimplementasikan method.</li>
+                <li>✨ Dengan menggabungkan konsep OOP, program menjadi lebih mudah dikembangkan dan dipelihara.</li>
+            </ul>
+        </div>
+    </div> 
+
+    <footer> 
+        <p>© 2026 - USMAN YAKIN TRIO SINADA | NIM: 251410006 | UNIVERSITAS BINADARMA</p>
+        <p style="font-size: 0.85em; margin-top: 8px;">✨ Cosmic Theme - Polimorfisme & Abstraksi ✨</p>
     </footer> 
 
     <script>
