@@ -540,6 +540,48 @@ void main() {
             <button onclick="openModal('https://dartpad.dev/?id=2ef67fa3cc5dac5d94eaf54440d1577d&theme=dark&run=true', 'Demo Bentuk Geometri')">▶ JALANKAN</button>
         </div>
 
+                <!-- 15. POLYMORPHISM - MEDIA PLAYER -->
+        <div class="card"> 
+            <h2>🎵 15. Chalenge - </h2> 
+            <p><b></b> </p>
+            <pre><code>// Nama   : USMAN YAKIN TRIO SINADA
+// Nim    : 251410006
+// Kelas  : SI2A
+
+abstract class MediaPlayer {
+  void play();
+}
+
+class AudioPlayer extends MediaPlayer {
+  @override
+  void play() => print('Memutar Audio MP3...');
+}
+
+class VideoPlayer extends MediaPlayer {
+  @override
+  void play() => print('Memutar Video MP4...');
+}
+
+class StreamingPlayer extends MediaPlayer {
+  @override
+  void play() => print('Memutar Live Stream...');
+}
+
+class Playlist {
+  List media = [];
+
+  void playAll() => media.forEach((m) => m.play());
+}
+
+void main() {
+  var list = Playlist();
+  list.media = [AudioPlayer(), VideoPlayer(), StreamingPlayer()];
+  list.playAll();
+}</code></pre>
+            <div class="btn-group">
+                <button onclick="openModal('https://dartpad.dev/embed-dart.html?id=7360f0bafe121323de27201df11173a5&theme=dark&run=true', 'Demo Polymorphism - Media Player')">🎵 JALANKAN POLYMORPHISM (Langsung Output)</button>
+            </div>
+        </div>
      
         © 2026 - USMAN YAKIN TRIO SINADA | NIM: 251410006 | UNIVERSITAS BINADARMA 
     </footer> 
